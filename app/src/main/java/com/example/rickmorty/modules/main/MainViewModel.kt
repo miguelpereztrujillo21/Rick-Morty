@@ -1,6 +1,7 @@
 package com.example.rickmorty.modules.main
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
@@ -11,9 +12,21 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class MainViewModel : ViewModel() {
+    var characters = MutableLiveData<ResponseCharacters>()
+
+    var error = MutableLiveData<String>()
     fun getCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
-            val result = RetrofitHelper.getInstance().create(Api::class.java).getCharacters();
+            try {
+                val response = RetrofitHelper.getInstance().create(Api::class.java).getCharacters()
+                if (response.isSuccessful) {
+                    characters.postValue(response.body())
+                } else {
+                    error.postValue("Error: ${response.code()}")
+                }
+            } catch (e: Exception) {
+                error.value = "Error: ${e.message}"
+            }
         }
     }
 }

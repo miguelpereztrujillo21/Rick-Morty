@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RickMorty</string>
+    //Character Status
+    <string name="character_status_alive">Alive</string>
+    <string name="character_status_dead">Dead</string>
+    <string name="character_status_unknow">unknown</string>
 </resources>

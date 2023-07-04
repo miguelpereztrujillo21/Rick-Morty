@@ -1,6 +1,6 @@
 package com.example.rickmorty.modules.models
 
-class Characters {
+class Character {
     val id: Int? = null;
     val name: String? = null;
     val status: String? = null;
