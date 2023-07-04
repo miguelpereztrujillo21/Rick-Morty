@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ItemCharacterBinding
+import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.models.Character
 
 class CharacterAdapter(val context: Context, private val clickListener: ClickListener) :
@@ -39,13 +40,15 @@ class CharacterAdapter(val context: Context, private val clickListener: ClickLis
 
 
             if (item.status?.equals(context.getString(R.string.character_status_alive)) == true) {
-                binding.imageStatusCharacter.setImageResource(R.drawable.ic_live)
+                binding.imageStatusCharacterItem.setImageResource(R.drawable.ic_live)
             } else if (item.status?.equals(context.getString(R.string.character_status_dead)) == true) {
-                binding.imageStatusCharacter.setImageResource(R.drawable.ic_dead)
+                binding.imageStatusCharacterItem.setImageResource(R.drawable.ic_dead)
             }
 
-            binding.name = item.name
-
+            binding.name = item.name?.let { Utils.addEllipsisToSentence(it) }
+            binding.cardCharacterItem.setOnClickListener {
+                clickListener.onClick(adapterPosition)
+            }
 
         }
 

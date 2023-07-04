@@ -15,12 +15,10 @@
     </data>
 
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/card_character_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="@dimen/mid_large_margin"
             android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="10dp"
@@ -36,7 +34,7 @@
                 <ImageView
                     android:id="@+id/image_character_item"
                     android:layout_width="match_parent"
-                    android:layout_height="86dp"
+                    android:layout_height="150dp"
                     android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +52,7 @@
                     tools:text="Rick Sanchez" />
 
                 <ImageView
-                    android:id="@+id/image_status_character"
+                    android:id="@+id/image_status_character_item"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="@dimen/mid_large_margin"

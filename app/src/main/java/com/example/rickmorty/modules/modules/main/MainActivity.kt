@@ -1,5 +1,6 @@
-package com.example.rickmorty.modules.main
+package com.example.rickmorty.modules.modules.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -10,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityMainBinding
 import com.example.rickmorty.modules.adapters.CharacterAdapter
+import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.models.Character
+import com.example.rickmorty.modules.modules.character_detail.ActivityCharacterDetail
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
@@ -30,22 +34,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initObservers() {
-        viewModel.characters.observe(this, Observer {character ->
+        viewModel.characters.observe(this, Observer { character ->
             character?.let {
-                initRecycler(it.results)
+                setUpRecycler(it.results)
             }
         })
     }
 
-    fun initRecycler(characters: ArrayList<Character>?) {
+    fun setUpRecycler(characters: ArrayList<Character>?) {
 
-        val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 2)
-        binding.recyclerMain.layoutManager = layoutManager
-        adapter = CharacterAdapter(this,object : CharacterAdapter.ClickListener {
+        val context = this;
+        binding.recyclerMain.layoutManager = GridLayoutManager(this, 2)
+        // Set Up Adapter
+        adapter = CharacterAdapter(this,
+            object : CharacterAdapter.ClickListener {
+
             override fun onClick(position: Int) {
+                val intent = Intent(context, ActivityCharacterDetail::class.java)
+                val bundle = Bundle()
+                bundle.putString(
+                    Constants.BUNDLE_KEY_CHARACTER,
+                    Gson().toJson(characters?.get(position))
+                )
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
         })
-       // Set Up Adapter
         adapter?.submitList(characters)
         binding.recyclerMain.adapter = adapter
     }

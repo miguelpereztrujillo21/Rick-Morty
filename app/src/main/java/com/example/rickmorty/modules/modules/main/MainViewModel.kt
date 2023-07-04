@@ -1,4 +1,4 @@
-package com.example.rickmorty.modules.main
+package com.example.rickmorty.modules.modules.main
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
