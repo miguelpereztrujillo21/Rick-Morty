@@ -39,11 +39,9 @@ class CharacterAdapter(val context: Context, private val clickListener: ClickLis
                 .into(binding.imageCharacterItem)
 
 
-            if (item.status?.equals(context.getString(R.string.character_status_alive)) == true) {
-                binding.imageStatusCharacterItem.setImageResource(R.drawable.ic_live)
-            } else if (item.status?.equals(context.getString(R.string.character_status_dead)) == true) {
-                binding.imageStatusCharacterItem.setImageResource(R.drawable.ic_dead)
-            }
+
+                binding.imageStatusCharacterItem.setImageResource(Utils.getIsAlive(item.status))
+
 
             binding.name = item.name?.let { Utils.addEllipsisToSentence(it) }
             binding.cardCharacterItem.setOnClickListener {

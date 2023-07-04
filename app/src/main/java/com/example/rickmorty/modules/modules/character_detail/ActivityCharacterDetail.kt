@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityCharacterDetailBinding
 import com.example.rickmorty.modules.helpers.Constants
+import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.models.Character
 import com.google.gson.Gson
 
@@ -28,6 +29,8 @@ class ActivityCharacterDetail : AppCompatActivity() {
         Glide.with(this)
             .load(character.image)
             .into(binding.imageCharacterDetail)
+
+        binding.imageStatusCharacterDetail.setImageResource(Utils.getIsAlive(character.status))
     }
 
     fun getExtras() {
