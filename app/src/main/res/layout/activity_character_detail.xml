@@ -18,27 +18,31 @@
         <ImageView
             android:id="@+id/image_character_detail"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:paddingBottom="@dimen/mid_large_margin"
             android:scaleType="centerCrop"
-            tools:src="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/black" />
 
         <TextView
             android:id="@+id/text_name_character_detail"
+            style="@style/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
             android:textAlignment="textStart"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text= "Rick Sanchez"
-            app:layout_constraintTop_toBottomOf="@+id/image_character_detail" />
+            app:layout_constraintTop_toBottomOf="@+id/image_character_detail"
+            tools:text="Rick Sanchez" />
 
         <ImageView
             android:id="@+id/image_status_character_detail"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:layout_marginStart="@dimen/mid_large_margin"
+            android:layout_marginTop="@dimen/mid_margin"
             app:layout_constraintStart_toEndOf="@+id/text_name_character_detail"
             app:layout_constraintTop_toBottomOf="@id/image_character_detail" />
 
@@ -46,6 +50,7 @@
             android:id="@+id/image_gender_character_detail"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:layout_marginTop="@dimen/mid_margin"
             app:layout_constraintStart_toEndOf="@+id/image_status_character_detail"
             app:layout_constraintTop_toBottomOf="@id/image_character_detail" />
 
@@ -53,10 +58,29 @@
             android:id="@+id/text_species_character_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mid_margin"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_name_character_detail" />
 
+        <TextView
+            android:id="@+id/text_origin_character_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mid_margin"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_species_character_detail" />
+
+        <TextView
+            android:id="@+id/text_location_character_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mid_margin"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_origin_character_detail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

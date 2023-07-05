@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity() {
                 setUpRecycler(it.results)
             }
         })
+        viewModel.error.observe(this,{
+            //TODO
+        })
     }
 
     fun setUpRecycler(characters: ArrayList<Character>?) {

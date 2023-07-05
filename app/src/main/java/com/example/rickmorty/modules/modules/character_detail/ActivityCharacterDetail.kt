@@ -31,11 +31,11 @@ class ActivityCharacterDetail : AppCompatActivity() {
             .load(character.image)
             .into(binding.imageCharacterDetail)
         binding.textNameCharacterDetail.text = character.name
-        binding.textSpeciesCharacterDetail.text = character.species
         binding.imageStatusCharacterDetail.setImageResource(Utils.setStatusIcon(character.status))
-
-        setGenderIcon(character)
-
+        binding.imageGenderCharacterDetail.setImageResource(Utils.setGenderIcon(character.gender))
+        binding.textSpeciesCharacterDetail.text = getString(R.string.template_specie, character.species)
+        binding.textOriginCharacterDetail.text = getString(R.string.template_origin, character.origin?.name)
+        binding.textLocationCharacterDetail.text =getString(R.string.template_location, character.location?.name)
     }
 
     fun getExtras() {

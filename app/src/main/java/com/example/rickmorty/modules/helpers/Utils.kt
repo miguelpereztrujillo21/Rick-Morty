@@ -13,7 +13,6 @@ object Utils {
     }
 
     fun setStatusIcon(isAlive: String?): Int {
-
         return if (isAlive?.equals(Constants.STATUS_ALIVE) == true) {
             R.drawable.ic_live
         } else if (isAlive?.equals(Constants.STATUS_DEAD) == true) {
@@ -21,9 +20,9 @@ object Utils {
         } else {
             R.drawable.ic_wanted
         }
-
     }
-    fun setGenderIcon(gender : String?): Int {
+
+    fun setGenderIcon(gender: String?): Int {
         return if (gender?.equals(Constants.GENDER_MALE) == true) {
             R.drawable.ic_male
         } else if (gender?.equals(Constants.GENDER_FEMALE) == true) {
