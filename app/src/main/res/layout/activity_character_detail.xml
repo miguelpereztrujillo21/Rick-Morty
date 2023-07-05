@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,7 +19,9 @@
             android:id="@+id/image_character_detail"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:paddingBottom="@dimen/mid_large_margin"
             android:scaleType="centerCrop"
+            tools:src="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,38 +30,32 @@
             android:id="@+id/text_name_character_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="textStart"
             app:layout_constraintStart_toStartOf="parent"
+            tools:text= "Rick Sanchez"
             app:layout_constraintTop_toBottomOf="@+id/image_character_detail" />
 
         <ImageView
             android:id="@+id/image_status_character_detail"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_margin="@dimen/mid_large_margin"
             app:layout_constraintStart_toEndOf="@+id/text_name_character_detail"
+            app:layout_constraintTop_toBottomOf="@id/image_character_detail" />
+
+        <ImageView
+            android:id="@+id/image_gender_character_detail"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintStart_toEndOf="@+id/image_status_character_detail"
             app:layout_constraintTop_toBottomOf="@id/image_character_detail" />
 
         <TextView
             android:id="@+id/text_species_character_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-<!--
-        <TextView
-            android:id="@+id/text_name_character_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/text_name_character_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/text_name_character_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />-->
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_name_character_detail" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

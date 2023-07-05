@@ -55,9 +55,20 @@
                     android:id="@+id/image_status_character_item"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_margin="@dimen/mid_large_margin"
-                    app:layout_constraintStart_toEndOf="@+id/text_name_character_item"
-                    app:layout_constraintTop_toBottomOf="@id/image_character_item" />
+                    android:layout_marginTop="@dimen/mid_large_margin"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/image_character_item"
+                    app:layout_constraintEnd_toStartOf="@+id/image_gender_character_item"
+                    />
+                <ImageView
+                    android:id="@+id/image_gender_character_item"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="@dimen/mid_large_margin"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_character_item"
+                 />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

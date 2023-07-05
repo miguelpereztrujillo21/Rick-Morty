@@ -2,12 +2,10 @@ package com.example.rickmorty.modules.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ItemCharacterBinding
 import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.models.Character
@@ -40,8 +38,8 @@ class CharacterAdapter(val context: Context, private val clickListener: ClickLis
 
 
 
-                binding.imageStatusCharacterItem.setImageResource(Utils.getIsAlive(item.status))
-
+            binding.imageStatusCharacterItem.setImageResource(Utils.setStatusIcon(item.status))
+            binding.imageGenderCharacterItem.setImageResource(Utils.setGenderIcon(item.gender))
 
             binding.name = item.name?.let { Utils.addEllipsisToSentence(it) }
             binding.cardCharacterItem.setOnClickListener {
