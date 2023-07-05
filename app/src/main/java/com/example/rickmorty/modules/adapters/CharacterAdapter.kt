@@ -71,4 +71,8 @@ class CharacterAdapter(val context: Context, private val clickListener: ClickLis
     interface ClickListener {
         fun onClick(position: Int)
     }
+
+    fun getCharacterPosition(position: Int): Character? {
+        return getItem(position)
+    }
 }

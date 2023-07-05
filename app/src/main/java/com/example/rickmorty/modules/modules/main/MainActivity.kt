@@ -1,5 +1,6 @@
 package com.example.rickmorty.modules.modules.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.google.gson.Gson
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
+    private lateinit var layoutManager: GridLayoutManager
     var adapter: CharacterAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,41 +31,61 @@ class MainActivity : AppCompatActivity() {
 
         initObservers()
 
-        viewModel.getCharacters();
+        setUpRecycler()
+
+        viewModel.getCharacters(1);
 
     }
 
-    fun initObservers() {
+
+    private fun initObservers() {
         viewModel.characters.observe(this, Observer { character ->
             character?.let {
-                setUpRecycler(it.results)
+                adapter?.submitList(it)
             }
         })
-        viewModel.error.observe(this,{
-            //TODO
+        viewModel.error.observe(this, Observer {
+            // Handle error
         })
     }
 
-    fun setUpRecycler(characters: ArrayList<Character>?) {
+    fun setUpRecycler() {
+        layoutManager = GridLayoutManager(this, 2)
+        binding.recyclerMain.layoutManager = layoutManager
 
-        val context = this;
-        binding.recyclerMain.layoutManager = GridLayoutManager(this, 2)
-        // Set Up Adapter
-        adapter = CharacterAdapter(this,
-            object : CharacterAdapter.ClickListener {
-
+        adapter = CharacterAdapter(this, object : CharacterAdapter.ClickListener {
             override fun onClick(position: Int) {
-                val intent = Intent(context, ActivityCharacterDetail::class.java)
+                val intent = Intent(this@MainActivity, ActivityCharacterDetail::class.java)
                 val bundle = Bundle()
                 bundle.putString(
                     Constants.BUNDLE_KEY_CHARACTER,
-                    Gson().toJson(characters?.get(position))
+                    Gson().toJson(adapter?.getCharacterPosition(position))
                 )
                 intent.putExtras(bundle)
                 startActivity(intent)
             }
         })
-        adapter?.submitList(characters)
         binding.recyclerMain.adapter = adapter
+
+        binding.recyclerMain.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val totalItemCount = layoutManager.itemCount
+                val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
+
+                if (!viewModel.isLoading && lastVisibleItemPosition >= totalItemCount - 5) {
+                    loadMoreCharacters()
+                }
+            }
+        })
     }
+
+
+    private fun loadMoreCharacters() {
+        viewModel.isLoading = true
+        viewModel.currentPage += 1
+        viewModel.getCharacters(viewModel.currentPage)
+
+    }
+
 }

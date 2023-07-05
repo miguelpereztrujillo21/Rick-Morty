@@ -4,11 +4,12 @@ import com.example.rickmorty.modules.models.ResponseCharacters
 import retrofit2.Response
 
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface Api {
 
     @GET("character/")
-    suspend fun getCharacters(): Response<ResponseCharacters>
+    suspend fun getCharacters(@Query("page") page:Int): Response<ResponseCharacters>
 
 
 }
