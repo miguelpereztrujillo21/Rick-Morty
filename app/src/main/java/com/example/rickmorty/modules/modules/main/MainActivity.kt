@@ -1,9 +1,8 @@
 package com.example.rickmorty.modules.modules.main
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,14 +13,12 @@ import com.example.rickmorty.databinding.ActivityMainBinding
 import com.example.rickmorty.modules.adapters.CharacterAdapter
 import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.helpers.Utils
-import com.example.rickmorty.modules.models.Character
 import com.example.rickmorty.modules.modules.character_detail.ActivityCharacterDetail
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
-    private lateinit var layoutManager: GridLayoutManager
     var adapter: CharacterAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +39,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-
+    
     private fun initObservers() {
         viewModel.characters.observe(this, Observer { character ->
             character?.let {
@@ -58,11 +54,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setUpSearchBar(){
-        binding.searchBarMain
-    }
     private fun setUpRecycler() {
-        layoutManager = GridLayoutManager(this, 2)
+        val layoutManager = GridLayoutManager(this, 2)
+
         binding.recyclerMain.layoutManager = layoutManager
 
         adapter = CharacterAdapter(this, object : CharacterAdapter.ClickListener {
