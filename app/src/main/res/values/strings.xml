@@ -9,4 +9,9 @@
     <string name="template_specie">Especie: %s</string>
     <string name="template_origin">Origen: %s</string>
     <string name="template_location">Localización: %s</string>
+
+    //Error
+    <string name="error_dialog_title">Error de conexión</string>
+    <string name="error_dialog_description">Prueba mas tarde</string>
+    <string name="error_dialog_close_btn">Cerrar</string>
 </resources>

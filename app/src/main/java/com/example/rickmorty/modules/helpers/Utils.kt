@@ -1,5 +1,16 @@
 package com.example.rickmorty.modules.helpers
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Context
+import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import androidx.databinding.DataBindingUtil
 import com.example.rickmorty.R
 import com.example.rickmorty.modules.models.Character
 
@@ -31,4 +42,19 @@ object Utils {
             R.drawable.ic_question_mark
         }
     }
+    fun showDialog(context: Context,title: String, description: String, activity: Activity) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(title)
+        builder.setMessage(description)
+
+        builder.setPositiveButton(context.getString(R.string.error_dialog_close_btn)) { dialog, _ ->
+            activity.finishAffinity()
+        }
+
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+
 }

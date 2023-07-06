@@ -13,6 +13,7 @@ import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityMainBinding
 import com.example.rickmorty.modules.adapters.CharacterAdapter
 import com.example.rickmorty.modules.helpers.Constants
+import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.models.Character
 import com.example.rickmorty.modules.modules.character_detail.ActivityCharacterDetail
 import com.google.gson.Gson
@@ -27,13 +28,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        binding.lifecycleOwner = this
+        binding.mainActivity = this
+        binding.mainViewModel = viewModel
 
         initObservers()
 
         setUpRecycler()
 
         viewModel.getCharacters(1);
+
 
     }
 
@@ -44,12 +50,18 @@ class MainActivity : AppCompatActivity() {
                 adapter?.submitList(it)
             }
         })
+        viewModel.filterText.observe(this) {
+           viewModel.getFilteredCharacters()
+        }
         viewModel.error.observe(this, Observer {
-            // Handle error
+            Utils.showDialog(this,getString(R.string.error_dialog_title),getString(R.string.error_dialog_description),this)
         })
     }
 
-    fun setUpRecycler() {
+    private fun setUpSearchBar(){
+        binding.searchBarMain
+    }
+    private fun setUpRecycler() {
         layoutManager = GridLayoutManager(this, 2)
         binding.recyclerMain.layoutManager = layoutManager
 
