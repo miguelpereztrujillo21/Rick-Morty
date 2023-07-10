@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             character?.let {
                 adapter?.submitList(it)
             }
+            adapter?.notifyDataSetChanged()
         })
         viewModel.filterText.observe(this) {
            viewModel.getFilteredCharacters()
@@ -89,8 +90,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadMoreCharacters() {
         viewModel.isLoading = true
-        viewModel.currentPage += 1
-        viewModel.getCharacters(viewModel.currentPage)
+        viewModel.currentPage.let { currentPage ->
+            viewModel.maxPages?.let { maxPages ->
+                if (maxPages > currentPage) {
+                    viewModel.currentPage += 1
+
+                    if (!viewModel.mIsFilterCall) {
+                        viewModel.getCharacters(viewModel.currentPage)
+                    } else {
+                        viewModel.getFilteredCharacters()
+                    }
+
+                    viewModel.cacheFilteredCharacters = true
+                }
+            }
+        }
+
 
     }
 

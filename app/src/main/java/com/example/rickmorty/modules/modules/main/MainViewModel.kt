@@ -1,32 +1,35 @@
 package com.example.rickmorty.modules.modules.main
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
 import com.example.rickmorty.modules.models.Character
 import com.example.rickmorty.modules.models.Info
-import com.example.rickmorty.modules.models.ResponseCharacters
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class MainViewModel : ViewModel() {
     var characters = MutableLiveData<ArrayList<Character>>()
     val filterText = MutableLiveData<String>()
     var currentPage = 1
+    var maxPages: Int? = null
     var isLoading = false
-    var info: Info? = null
+    private var info: Info? = null
+    var cacheFilteredCharacters = false
+    var mIsFilterCall = false
+
 
     var error = MutableLiveData<String>()
     fun getCharacters(page: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response =
-                    RetrofitHelper.getInstance().create(Api::class.java).getCharacters(page)
-                if (response.isSuccessful){
+                    RetrofitHelper.getInstance().create(Api::class.java).getCharacters(currentPage)
+                if (response.isSuccessful) {
+                    cacheFilteredCharacters = false
+                    mIsFilterCall = false
                     val updatedList = ArrayList<Character>()
                     updatedList.addAll(characters.value ?: emptyList())
                     updatedList.addAll(response.body()?.results ?: emptyList())
@@ -47,10 +50,18 @@ class MainViewModel : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response =
-                    RetrofitHelper.getInstance().create(Api::class.java).getCharacters(name = filterText.value)
+                    RetrofitHelper.getInstance().create(Api::class.java)
+                        .getCharacters(page = currentPage, name = filterText.value)
                 if (response.isSuccessful) {
-                    characters.postValue(response.body()?.results)
+                    val updatedList = ArrayList<Character>()
+                    if (cacheFilteredCharacters) {
+                        updatedList.addAll(characters.value ?: emptyList())
+                    }
+                    updatedList.addAll(response.body()?.results ?: emptyList())
+                    characters.postValue(updatedList)
+                    maxPages = response.body()?.info?.pages
                     response.body()?.info?.let { info = it }
+                    mIsFilterCall = true
                 } else {
                     error.postValue("Error: ${response.code()}")
                 }
