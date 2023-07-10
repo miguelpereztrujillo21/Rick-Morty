@@ -1,6 +1,6 @@
 package com.example.rickmorty.modules.models
 
-class ResponseCharacters {
+class ResponseCharacters(charactersMock: ArrayList<Character>, infoMock: Info) {
     val info: Info? = null;
     val results: ArrayList<Character>? = null;
 }

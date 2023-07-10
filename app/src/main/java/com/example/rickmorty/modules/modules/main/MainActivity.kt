@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    
+
     private fun initObservers() {
         viewModel.characters.observe(this, Observer { character ->
             character?.let {
