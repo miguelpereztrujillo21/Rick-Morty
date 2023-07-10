@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         setUpRecycler()
 
-        viewModel.getCharacters(1);
+        viewModel.getCharacters();
 
 
     }
@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
             character?.let {
                 adapter?.submitList(it)
             }
-            adapter?.notifyDataSetChanged()
         })
         viewModel.filterText.observe(this) {
-           viewModel.getFilteredCharacters()
+            viewModel.getCharacters()
+            viewModel.currentPage = 1
         }
         viewModel.error.observe(this, Observer {
             Utils.showDialog(this,getString(R.string.error_dialog_title),getString(R.string.error_dialog_description),this)
@@ -94,14 +94,10 @@ class MainActivity : AppCompatActivity() {
             viewModel.maxPages?.let { maxPages ->
                 if (maxPages > currentPage) {
                     viewModel.currentPage += 1
-
-                    if (!viewModel.mIsFilterCall) {
-                        viewModel.getCharacters(viewModel.currentPage)
-                    } else {
-                        viewModel.getFilteredCharacters()
-                    }
-
+                    viewModel.getCharacters()
                     viewModel.cacheFilteredCharacters = true
+                }else{
+                    viewModel.currentPage = 1
                 }
             }
         }
