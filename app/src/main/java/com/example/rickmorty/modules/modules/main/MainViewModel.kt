@@ -7,16 +7,15 @@ import com.example.rickmorty.modules.api.RetrofitHelper
 import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.models.Character
 import com.example.rickmorty.modules.models.Info
-import com.google.gson.Gson
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.json.JSONObject
 
 class MainViewModel : ViewModel() {
     var characters = MutableLiveData<ArrayList<Character>>()
     val filterText = MutableLiveData<String>()
+    val filterStatus = MutableLiveData<String>()
     var currentPage = 1
     var maxPages: Int? = null
     var isLoading = false
@@ -31,7 +30,7 @@ class MainViewModel : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val response =
                 RetrofitHelper.getInstance().create(Api::class.java)
-                    .getCharacters(page = currentPage, name = filterText.value)
+                    .getCharacters(page = currentPage, name = filterText.value, status = filterStatus.value)
             try {
                 isLoading = true
                 if (response.isSuccessful) {

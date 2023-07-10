@@ -11,7 +11,8 @@ interface Api {
     @GET("character/")
     suspend fun getCharacters(
         @Query("page") page: Int? = null,
-        @Query("name") name: String? = null
+        @Query("name") name: String? = null,
+        @Query("status") status:String? = null
     ): Response<ResponseCharacters>
 
 

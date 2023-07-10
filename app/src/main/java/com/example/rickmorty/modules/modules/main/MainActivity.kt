@@ -1,8 +1,10 @@
 package com.example.rickmorty.modules.modules.main
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEach
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +16,7 @@ import com.example.rickmorty.modules.adapters.CharacterAdapter
 import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.modules.character_detail.ActivityCharacterDetail
+import com.google.android.material.chip.Chip
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding.mainViewModel = viewModel
 
         initObservers()
+        initListeners()
 
         setUpRecycler()
 
@@ -49,6 +53,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.filterText.observe(this) {
             viewModel.getCharacters()
             viewModel.currentPage = 1
+        }
+
+        viewModel.filterStatus.observe(this) {
+            viewModel.getCharacters()
         }
         viewModel.error.observe(this, Observer {
             if (it.equals(Constants.NOT_RESULTS)) {
@@ -69,6 +77,44 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         })
+    }
+
+    private fun initListeners() {
+        binding.apply {
+
+
+
+            chipDeadMain.setOnCheckedChangeListener { _, isChecked ->
+                chipDeadMain.chipBackgroundColor =
+                    ColorStateList.valueOf(
+                        if (isChecked) getColor(R.color.light_grey) else getColor(
+                            R.color.white
+                        )
+                    )
+                viewModel.filterStatus.value =
+                    if (isChecked) Constants.STATUS_DEAD else Constants.STATUS_ALIVE
+            }
+            chipAliveMain.setOnCheckedChangeListener { _, isChecked ->
+                chipAliveMain.chipBackgroundColor =
+                    ColorStateList.valueOf(
+                        if (isChecked) getColor(R.color.light_grey) else getColor(
+                            R.color.white
+                        )
+                    )
+
+                viewModel.filterStatus.value = Constants.STATUS_ALIVE
+            }
+            chipUnknowMain.setOnCheckedChangeListener { _, isChecked ->
+                chipUnknowMain.chipBackgroundColor =
+                    ColorStateList.valueOf(
+                        if (isChecked) getColor(R.color.light_grey) else getColor(
+                            R.color.white
+                        )
+                    )
+
+                viewModel.filterStatus.value = Constants.STATUS_UNKNOW
+            }
+        }
     }
 
     private fun setUpRecycler() {
