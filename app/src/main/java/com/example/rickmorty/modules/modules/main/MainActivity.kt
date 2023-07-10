@@ -106,11 +106,9 @@ class MainActivity : AppCompatActivity() {
                 )
             if (isStatus && isChecked) {
                 viewModel.filterStatus.value = filter
-
-            } else {
+            } else if (isStatus){
                 viewModel.filterStatus.value = ""
-            }
-            if (isChecked && !isStatus) {
+            }else if (isChecked && !isStatus) {
                 viewModel.filterGender.value = filter
             } else {
                 viewModel.filterGender.value = ""
