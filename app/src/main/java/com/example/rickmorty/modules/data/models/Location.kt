@@ -1,4 +1,4 @@
-package com.example.rickmorty.modules.models
+package com.example.rickmorty.modules.data.models
 
 class Location {
     val name: String? = null;

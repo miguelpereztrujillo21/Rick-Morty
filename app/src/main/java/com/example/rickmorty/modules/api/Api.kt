@@ -1,6 +1,6 @@
 package com.example.rickmorty.modules.api
 
-import com.example.rickmorty.modules.models.ResponseCharacters
+import com.example.rickmorty.modules.data.models.ResponseCharacters
 import retrofit2.Response
 
 import retrofit2.http.GET

@@ -1,4 +1,4 @@
-package com.example.rickmorty.modules.models
+package com.example.rickmorty.modules.data.models
 
 class Character {
     val id: Int? = null;

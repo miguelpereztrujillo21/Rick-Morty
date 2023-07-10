@@ -8,7 +8,7 @@ import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityCharacterDetailBinding
 import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.helpers.Utils
-import com.example.rickmorty.modules.models.Character
+import com.example.rickmorty.modules.data.models.Character
 import com.google.gson.Gson
 
 class ActivityCharacterDetail : AppCompatActivity() {

@@ -4,9 +4,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
-import com.example.rickmorty.modules.models.Character
-import com.example.rickmorty.modules.models.Info
-import com.example.rickmorty.modules.models.ResponseCharacters
+import com.example.rickmorty.modules.data.models.Character
+import com.example.rickmorty.modules.data.models.Info
+import com.example.rickmorty.modules.data.models.ResponseCharacters
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickmorty.databinding.ItemCharacterBinding
 import com.example.rickmorty.modules.helpers.Utils
-import com.example.rickmorty.modules.models.Character
+import com.example.rickmorty.modules.data.models.Character
 
 class CharacterAdapter(val context: Context, private val clickListener: ClickListener) :
     androidx.recyclerview.widget.ListAdapter<Character, CharacterAdapter.ViewHolder>(

@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
 import com.example.rickmorty.modules.helpers.Constants
-import com.example.rickmorty.modules.models.Character
-import com.example.rickmorty.modules.models.Info
+import com.example.rickmorty.modules.data.models.Character
+import com.example.rickmorty.modules.data.models.Info
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
