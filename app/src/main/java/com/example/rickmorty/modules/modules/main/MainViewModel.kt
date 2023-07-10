@@ -16,6 +16,7 @@ class MainViewModel : ViewModel() {
     var characters = MutableLiveData<ArrayList<Character>>()
     val filterText = MutableLiveData<String>()
     val filterStatus = MutableLiveData<String>()
+    val filterGender = MutableLiveData<String>()
     var currentPage = 1
     var maxPages: Int? = null
     var isLoading = false
@@ -30,7 +31,12 @@ class MainViewModel : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val response =
                 RetrofitHelper.getInstance().create(Api::class.java)
-                    .getCharacters(page = currentPage, name = filterText.value, status = filterStatus.value)
+                    .getCharacters(
+                        page = currentPage,
+                        name = filterText.value,
+                        status = filterStatus.value,
+                        gender = filterGender.value
+                    )
             try {
                 isLoading = true
                 if (response.isSuccessful) {

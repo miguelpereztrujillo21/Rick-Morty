@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.forEach
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -55,6 +54,10 @@ class MainActivity : AppCompatActivity() {
             viewModel.currentPage = 1
         }
 
+        viewModel.filterGender.observe(this) {
+            viewModel.getCharacters()
+        }
+
         viewModel.filterStatus.observe(this) {
             viewModel.getCharacters()
         }
@@ -82,39 +85,38 @@ class MainActivity : AppCompatActivity() {
     private fun initListeners() {
         binding.apply {
 
+            initChip(binding.chipAliveMain, Constants.STATUS_ALIVE, true)
+            initChip(binding.chipDeadMain, Constants.STATUS_DEAD, true)
+            initChip(binding.chipUnknowMain, Constants.STATUS_UNKNOW, true)
 
+            initChip(binding.chipGenderMaleMain, Constants.GENDER_MALE, false)
+            initChip(binding.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
+            initChip(binding.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
 
-            chipDeadMain.setOnCheckedChangeListener { _, isChecked ->
-                chipDeadMain.chipBackgroundColor =
-                    ColorStateList.valueOf(
-                        if (isChecked) getColor(R.color.light_grey) else getColor(
-                            R.color.white
-                        )
+        }
+    }
+
+    private fun initChip(chip: Chip, filter: String, isStatus: Boolean) {
+        chip.setOnCheckedChangeListener { _, isChecked ->
+            chip.chipBackgroundColor =
+                ColorStateList.valueOf(
+                    if (isChecked) getColor(R.color.light_grey) else getColor(
+                        R.color.white
                     )
-                viewModel.filterStatus.value =
-                    if (isChecked) Constants.STATUS_DEAD else Constants.STATUS_ALIVE
+                )
+            if (isStatus && isChecked) {
+                viewModel.filterStatus.value = filter
+
+            } else {
+                viewModel.filterStatus.value = ""
             }
-            chipAliveMain.setOnCheckedChangeListener { _, isChecked ->
-                chipAliveMain.chipBackgroundColor =
-                    ColorStateList.valueOf(
-                        if (isChecked) getColor(R.color.light_grey) else getColor(
-                            R.color.white
-                        )
-                    )
-
-                viewModel.filterStatus.value = Constants.STATUS_ALIVE
-            }
-            chipUnknowMain.setOnCheckedChangeListener { _, isChecked ->
-                chipUnknowMain.chipBackgroundColor =
-                    ColorStateList.valueOf(
-                        if (isChecked) getColor(R.color.light_grey) else getColor(
-                            R.color.white
-                        )
-                    )
-
-                viewModel.filterStatus.value = Constants.STATUS_UNKNOW
+            if (isChecked && !isStatus) {
+                viewModel.filterGender.value = filter
+            } else {
+                viewModel.filterGender.value = ""
             }
         }
+
     }
 
     private fun setUpRecycler() {
@@ -139,29 +141,22 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerMain.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val totalItemCount = layoutManager.itemCount
-                val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
 
-                if (dy != 0&&!viewModel.isLoading && lastVisibleItemPosition >= totalItemCount - 5) {
-                    loadMoreCharacters()
+                if (dy != 0&&!viewModel.isLoading && layoutManager.findLastVisibleItemPosition() >= layoutManager.itemCount - 5) {
+                    viewModel.isLoading = true
+                    viewModel.currentPage.let { currentPage ->
+                        viewModel.maxPages?.let { maxPages ->
+                            if (maxPages > currentPage) {
+                                viewModel.currentPage += 1
+                                viewModel.getCharacters()
+                                viewModel.cacheFilteredCharacters = true
+                            }else{
+                                viewModel.currentPage = 1
+                            }
+                        }
+                    }
                 }
             }
         })
     }
-
-    private fun loadMoreCharacters() {
-        viewModel.isLoading = true
-        viewModel.currentPage.let { currentPage ->
-            viewModel.maxPages?.let { maxPages ->
-                if (maxPages > currentPage) {
-                    viewModel.currentPage += 1
-                    viewModel.getCharacters()
-                    viewModel.cacheFilteredCharacters = true
-                }else{
-                    viewModel.currentPage = 1
-                }
-            }
-        }
-    }
-
 }
