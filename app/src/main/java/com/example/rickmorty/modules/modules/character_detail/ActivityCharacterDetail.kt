@@ -43,13 +43,4 @@ class ActivityCharacterDetail : AppCompatActivity() {
         initComponents(character)
     }
 
-    fun setGenderIcon(character :Character){
-        if (character?.gender?.equals(Constants.GENDER_MALE) == true) {
-            binding.imageGenderCharacterDetail.setImageResource(R.drawable.ic_male)
-        } else if (character?.gender?.equals(Constants.GENDER_MALE) == true) {
-            binding.imageGenderCharacterDetail.setImageResource(R.drawable.ic_female)
-        } else {
-            binding.imageGenderCharacterDetail.setImageResource(R.drawable.ic_question_mark)
-        }
-    }
 }

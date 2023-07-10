@@ -14,4 +14,9 @@
     <string name="error_dialog_title">Error de conexión</string>
     <string name="error_dialog_description">Prueba mas tarde</string>
     <string name="error_dialog_close_btn">Cerrar</string>
+    <string name="error_dialog_close_title_not_results">Sin resultados</string>
+    <string name="error_dialog_acept_btn_not_results">Aceptar</string>
+
+
+
 </resources>

@@ -4,11 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
+import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.models.Character
 import com.example.rickmorty.modules.models.Info
+import com.google.gson.Gson
+import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 class MainViewModel : ViewModel() {
     var characters = MutableLiveData<ArrayList<Character>>()
@@ -25,11 +29,11 @@ class MainViewModel : ViewModel() {
 
     fun getCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
+            val response =
+                RetrofitHelper.getInstance().create(Api::class.java)
+                    .getCharacters(page = currentPage, name = filterText.value)
             try {
-                val response =
-                    RetrofitHelper.getInstance().create(Api::class.java)
-                        .getCharacters(page = currentPage, name = filterText.value)
-                
+                isLoading = true
                 if (response.isSuccessful) {
                     val updatedList = ArrayList<Character>()
                     if (cacheFilteredCharacters) {
@@ -42,8 +46,17 @@ class MainViewModel : ViewModel() {
                     response.body()?.info?.let { info = it }
                     cacheFilteredCharacters = false
                 } else {
-                    error.postValue("Error: ${response.code()}")
+                    val jsonObject = JsonParser().parse(response.errorBody()?.string()).asJsonObject
+                    val errorValue = jsonObject.get("error").asString
+                    if(errorValue?.equals(Constants.NOT_RESULTS) == true) {
+                       error.postValue(Constants.NOT_RESULTS)
+                        characters.postValue(ArrayList<Character>())
+                    }else{
+                        error.postValue("Error: ${response.code()}")
+                        characters.postValue(ArrayList<Character>())
+                    }
                 }
+                isLoading = false
             } catch (e: Exception) {
                 error.value = "Error: ${e.message}"
             } finally {

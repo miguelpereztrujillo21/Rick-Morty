@@ -2,17 +2,8 @@ package com.example.rickmorty.modules.helpers
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Context
-import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
-import androidx.databinding.DataBindingUtil
 import com.example.rickmorty.R
-import com.example.rickmorty.modules.models.Character
 
 object Utils {
     fun addEllipsisToSentence(sentence: String): String {
@@ -42,14 +33,27 @@ object Utils {
             R.drawable.ic_question_mark
         }
     }
-    fun showDialog(context: Context,title: String, description: String, activity: Activity) {
+
+    fun showDialog(
+        context: Context,
+        title: String,
+        description: String,
+        activity: Activity,
+        finishBtn: Boolean
+    ) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(title)
         builder.setMessage(description)
-
-        builder.setPositiveButton(context.getString(R.string.error_dialog_close_btn)) { dialog, _ ->
-            activity.finishAffinity()
+        if (finishBtn){
+            builder.setPositiveButton(context.getString(R.string.error_dialog_close_btn)) { dialog, _ ->
+                activity.finishAffinity()
+            }
+        }else{
+            builder.setPositiveButton(context.getString(R.string.error_dialog_acept_btn_not_results)) { dialog, _ ->
+                dialog.dismiss()
+            }
         }
+
 
 
         val dialog = builder.create()

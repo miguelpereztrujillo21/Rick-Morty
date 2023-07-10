@@ -51,7 +51,23 @@ class MainActivity : AppCompatActivity() {
             viewModel.currentPage = 1
         }
         viewModel.error.observe(this, Observer {
-            Utils.showDialog(this,getString(R.string.error_dialog_title),getString(R.string.error_dialog_description),this)
+            if (it.equals(Constants.NOT_RESULTS)) {
+                Utils.showDialog(
+                    this,
+                    getString(R.string.error_dialog_close_title_not_results),
+                    "",
+                    this,
+                    false
+                )
+            } else {
+                Utils.showDialog(
+                    this,
+                    getString(R.string.error_dialog_title),
+                    getString(R.string.error_dialog_description),
+                    this,
+                    true
+                )
+            }
         })
     }
 
@@ -80,13 +96,12 @@ class MainActivity : AppCompatActivity() {
                 val totalItemCount = layoutManager.itemCount
                 val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
 
-                if (!viewModel.isLoading && lastVisibleItemPosition >= totalItemCount - 5) {
+                if (dy != 0&&!viewModel.isLoading && lastVisibleItemPosition >= totalItemCount - 5) {
                     loadMoreCharacters()
                 }
             }
         })
     }
-
 
     private fun loadMoreCharacters() {
         viewModel.isLoading = true
@@ -101,8 +116,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 
 }

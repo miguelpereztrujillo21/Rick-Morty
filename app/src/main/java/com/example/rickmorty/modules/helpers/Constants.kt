@@ -12,4 +12,7 @@ object Constants {
     const val GENDER_MALE = "Male"
     const val GENDER_FEMALE = "Female"
 
+    //ERROR
+    const val NOT_RESULTS = "There is nothing here"
+
 }
