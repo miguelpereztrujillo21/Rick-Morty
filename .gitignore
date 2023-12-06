@@ -20,3 +20,5 @@ app/.gitignore
 .idea/compiler.xml
 .idea/gradle.xml
 .idea/kotlinc.xml
+app/build/
+
