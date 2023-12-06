@@ -34,12 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         initObservers()
         initListeners()
-
         setUpRecycler()
 
         viewModel.getCharacters()
-
-
     }
 
     private fun initObservers() {
@@ -83,15 +80,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun initListeners() {
         binding.apply {
+            initChip(binding.layoutFilters.chipAliveMain, Constants.STATUS_ALIVE, true)
+            initChip(binding.layoutFilters.chipDeadMain, Constants.STATUS_DEAD, true)
+            initChip(binding.layoutFilters.chipUnknowMain, Constants.STATUS_UNKNOW, true)
 
-            initChip(binding.chipAliveMain, Constants.STATUS_ALIVE, true)
-            initChip(binding.chipDeadMain, Constants.STATUS_DEAD, true)
-            initChip(binding.chipUnknowMain, Constants.STATUS_UNKNOW, true)
-
-            initChip(binding.chipGenderMaleMain, Constants.GENDER_MALE, false)
-            initChip(binding.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
-            initChip(binding.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
-
+            initChip(binding.layoutFilters.chipGenderMaleMain, Constants.GENDER_MALE, false)
+            initChip(binding.layoutFilters.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
+            initChip(binding.layoutFilters.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
         }
     }
 
@@ -99,21 +94,12 @@ class MainActivity : AppCompatActivity() {
         chip.setOnCheckedChangeListener { _, isChecked ->
             chip.chipBackgroundColor =
                 ColorStateList.valueOf(
-                    if (isChecked) getColor(R.color.light_grey) else getColor(
-                        R.color.white
-                    )
+                    if (isChecked) getColor(R.color.light_grey)
+                    else getColor(R.color.white)
                 )
-            if (isStatus && isChecked) {
-                viewModel.filterStatus.value = filter
-            } else if (isStatus){
-                viewModel.filterStatus.value = ""
-            }else if (isChecked && !isStatus) {
-                viewModel.filterGender.value = filter
-            } else {
-                viewModel.filterGender.value = ""
-            }
+            viewModel.filterStatus.value = if (isStatus && isChecked) filter else if (isStatus) "" else ""
+            viewModel.filterGender.value = if (isChecked && !isStatus) filter else ""
         }
-
     }
 
     private fun setUpRecycler() {

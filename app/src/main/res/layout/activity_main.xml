@@ -40,44 +40,8 @@
                 android:text="@={mainViewModel.filterText}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group_status_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mid_large_margin"
-            app:singleLine="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_dead_main"
-                style="@style/chip_style"
-                app:chipIcon="@drawable/ic_dead" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_alive_main"
-                style="@style/chip_style"
-                app:chipIcon="@drawable/ic_live" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_unknow_main"
-                style="@style/chip_style"
-                app:chipIcon="@drawable/ic_wanted" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_gender_male_main"
-                style="@style/chip_style"
-                app:chipIcon="@drawable/ic_male" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_gender_female_main"
-                style="@style/chip_style"
-                app:chipIcon="@drawable/ic_female" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_gender_unknow_main"
-                style="@style/chip_style"
-                app:chipIcon="@drawable/ic_question_mark" />
-        </com.google.android.material.chip.ChipGroup>
-
+        <include layout="@layout/filters"
+            android:id="@+id/layout_filters"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_main"
             android:layout_width="match_parent"

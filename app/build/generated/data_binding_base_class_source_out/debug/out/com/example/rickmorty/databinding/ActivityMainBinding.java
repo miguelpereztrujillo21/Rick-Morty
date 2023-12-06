@@ -13,36 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.rickmorty.R;
 import com.example.rickmorty.modules.modules.main.MainActivity;
 import com.example.rickmorty.modules.modules.main.MainViewModel;
-import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
-  public final Chip chipAliveMain;
-
-  @NonNull
-  public final Chip chipDeadMain;
-
-  @NonNull
-  public final Chip chipGenderFemaleMain;
-
-  @NonNull
-  public final Chip chipGenderMaleMain;
-
-  @NonNull
-  public final Chip chipGenderUnknowMain;
-
-  @NonNull
-  public final ChipGroup chipGroupGender;
-
-  @NonNull
-  public final ChipGroup chipGroupStatusMain;
-
-  @NonNull
-  public final Chip chipUnknowMain;
+  public final FiltersBinding layoutFilters;
 
   @NonNull
   public final RecyclerView recyclerMain;
@@ -57,18 +34,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected MainActivity mMainActivity;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Chip chipAliveMain, Chip chipDeadMain, Chip chipGenderFemaleMain, Chip chipGenderMaleMain,
-      Chip chipGenderUnknowMain, ChipGroup chipGroupGender, ChipGroup chipGroupStatusMain,
-      Chip chipUnknowMain, RecyclerView recyclerMain, TextInputEditText searchBarMain) {
+      FiltersBinding layoutFilters, RecyclerView recyclerMain, TextInputEditText searchBarMain) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.chipAliveMain = chipAliveMain;
-    this.chipDeadMain = chipDeadMain;
-    this.chipGenderFemaleMain = chipGenderFemaleMain;
-    this.chipGenderMaleMain = chipGenderMaleMain;
-    this.chipGenderUnknowMain = chipGenderUnknowMain;
-    this.chipGroupGender = chipGroupGender;
-    this.chipGroupStatusMain = chipGroupStatusMain;
-    this.chipUnknowMain = chipUnknowMain;
+    this.layoutFilters = layoutFilters;
     this.recyclerMain = recyclerMain;
     this.searchBarMain = searchBarMain;
   }

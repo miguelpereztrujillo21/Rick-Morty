@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Estado cuando el botón está presionado -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#FF5733" /> <!-- Cambia el color a tu preferencia -->
+        </shape>
+    </item>
+
+    <!-- Estado cuando el botón está enfocado -->
+    <item android:state_focused="true">
+        <shape>
+            <solid android:color="#33FF57" /> <!-- Cambia el color a tu preferencia -->
+        </shape>
+    </item>
+
+    <!-- Estado por defecto -->
+    <item>
+        <shape>
+            <solid android:color="#3377FF" /> <!-- Cambia el color a tu preferencia -->
+        </shape>
+    </item>
+
+</selector>

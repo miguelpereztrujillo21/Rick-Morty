@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.example.rickmorty.databinding.ActivityCharacterDetailBindingImpl;
 import com.example.rickmorty.databinding.ActivityMainBindingImpl;
+import com.example.rickmorty.databinding.FiltersBindingImpl;
 import com.example.rickmorty.databinding.ItemCharacterBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -24,13 +25,16 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_ACTIVITYMAIN = 2;
 
-  private static final int LAYOUT_ITEMCHARACTER = 3;
+  private static final int LAYOUT_FILTERS = 3;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(3);
+  private static final int LAYOUT_ITEMCHARACTER = 4;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.rickmorty.R.layout.activity_character_detail, LAYOUT_ACTIVITYCHARACTERDETAIL);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.rickmorty.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.rickmorty.R.layout.filters, LAYOUT_FILTERS);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.rickmorty.R.layout.item_character, LAYOUT_ITEMCHARACTER);
   }
 
@@ -54,6 +58,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ActivityMainBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_main is invalid. Received: " + tag);
+        }
+        case  LAYOUT_FILTERS: {
+          if ("layout/filters_0".equals(tag)) {
+            return new FiltersBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for filters is invalid. Received: " + tag);
         }
         case  LAYOUT_ITEMCHARACTER: {
           if ("layout/item_character_0".equals(tag)) {
@@ -119,11 +129,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(3);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
 
     static {
       sKeys.put("layout/activity_character_detail_0", com.example.rickmorty.R.layout.activity_character_detail);
       sKeys.put("layout/activity_main_0", com.example.rickmorty.R.layout.activity_main);
+      sKeys.put("layout/filters_0", com.example.rickmorty.R.layout.filters);
       sKeys.put("layout/item_character_0", com.example.rickmorty.R.layout.item_character);
     }
   }

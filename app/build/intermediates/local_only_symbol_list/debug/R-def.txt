@@ -8,6 +8,7 @@ dimen mid_large_margin
 dimen mid_margin
 dimen small_margin
 drawable background_rick_morty
+drawable filter_selector
 drawable ic_dead
 drawable ic_female
 drawable ic_launcher_background
@@ -23,7 +24,7 @@ id chip_dead_main
 id chip_gender_female_main
 id chip_gender_male_main
 id chip_gender_unknow_main
-id chip_group_gender
+id chip_group_gender_main
 id chip_group_status_main
 id chip_unknow_main
 id image_character_detail
@@ -32,6 +33,7 @@ id image_gender_character_detail
 id image_gender_character_item
 id image_status_character_detail
 id image_status_character_item
+id layout_filters
 id recycler_main
 id search_bar_main
 id text_location_character_detail
@@ -41,6 +43,7 @@ id text_origin_character_detail
 id text_species_character_detail
 layout activity_character_detail
 layout activity_main
+layout filters
 layout item_character
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -54,11 +57,19 @@ string error_dialog_close_btn
 string error_dialog_close_title_not_results
 string error_dialog_description
 string error_dialog_title
+string simple_alive
+string simple_dead
+string simple_female
+string simple_filters
+string simple_indeterminado
+string simple_male
+string simple_wanted
 string template_location
 string template_origin
 string template_specie
 style Base.Theme.RickMorty
 style Theme.RickMorty
+style chip_style
 style title_text
 xml backup_rules
 xml data_extraction_rules

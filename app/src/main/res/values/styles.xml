@@ -11,6 +11,5 @@
         <item name="android:layout_marginStart">@dimen/mid_margin</item>
         <item name="android:checkable">true</item>
         <item name="chipEndPadding">0dp</item>
-        <item name="iconStartPadding">8dp</item>
     </style>
 </resources>

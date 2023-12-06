@@ -22,10 +22,7 @@ class MainViewModel : ViewModel() {
     var isLoading = false
     private var info: Info? = null
     var cacheFilteredCharacters = false
-
-
     var error = MutableLiveData<String>()
-
 
     fun getCharacters() {
         CoroutineScope(Dispatchers.IO).launch {

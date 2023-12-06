@@ -1,14 +1,22 @@
 [
     {
-        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/activity_character_detail.xml",
-        "source": "com.example.rickmorty.app-main-36:/layout/activity_character_detail.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-mergeDebugResources-33:\\layout\\activity_character_detail.xml",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\activity_character_detail.xml"
     },
     {
-        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/activity_main.xml",
-        "source": "com.example.rickmorty.app-main-36:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-mergeDebugResources-33:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/item_character.xml",
-        "source": "com.example.rickmorty.app-main-36:/layout/item_character.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-mergeDebugResources-33:\\layout\\filters.xml",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\filters.xml"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-mergeDebugResources-33:\\layout\\item_character.xml",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\item_character.xml"
+    },
+    {
+        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/filters.xml",
+        "source": "com.example.rickmorty.app-main-36:/layout/filters.xml"
     }
 ]

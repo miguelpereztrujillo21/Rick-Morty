@@ -1,4 +1,4 @@
-#Wed Dec 06 14:47:47 CET 2023
+#Wed Dec 06 16:20:07 CET 2023
 base.0=C\:\\Users\\Usuario\\Documents\\RickMorty\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Usuario\\Documents\\RickMorty\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Usuario\\Documents\\RickMorty\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex

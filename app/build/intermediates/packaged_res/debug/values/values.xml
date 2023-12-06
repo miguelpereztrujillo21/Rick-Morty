@@ -16,6 +16,13 @@
     <string name="error_dialog_close_title_not_results">Sin resultados</string>
     <string name="error_dialog_description">Prueba mas tarde</string>
     <string name="error_dialog_title">Error de conexión</string>
+    <string name="simple_alive">Vivo</string>
+    <string name="simple_dead">Muerto</string>
+    <string name="simple_female">Mujer</string>
+    <string name="simple_filters">Filtros</string>
+    <string name="simple_indeterminado">Indeterminado</string>
+    <string name="simple_male">Hombre</string>
+    <string name="simple_wanted">Wanded</string>
     <string name="template_location">Localización: %s</string>
     <string name="template_origin">Origen: %s</string>
     <string name="template_specie">Especie: %s</string>
@@ -24,6 +31,13 @@
         <item name="colorPrimary">#a3ff7e</item>
     </style>
     <style name="Theme.RickMorty" parent="Base.Theme.RickMorty"/>
+    <style name="chip_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/mid_margin</item>
+        <item name="android:checkable">true</item>
+        <item name="chipEndPadding">0dp</item>
+    </style>
     <style name="title_text">
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>

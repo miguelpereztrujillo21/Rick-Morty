@@ -12,17 +12,13 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @Nullable
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
-        sIncludes = null;
+        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(4);
+        sIncludes.setIncludes(0, 
+            new String[] {"filters"},
+            new int[] {2},
+            new int[] {com.example.rickmorty.R.layout.filters});
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.chip_group_status_main, 2);
-        sViewsWithIds.put(R.id.chip_dead_main, 3);
-        sViewsWithIds.put(R.id.chip_alive_main, 4);
-        sViewsWithIds.put(R.id.chip_unknow_main, 5);
-        sViewsWithIds.put(R.id.chip_group_gender, 6);
-        sViewsWithIds.put(R.id.chip_gender_male_main, 7);
-        sViewsWithIds.put(R.id.chip_gender_female_main, 8);
-        sViewsWithIds.put(R.id.chip_gender_unknow_main, 9);
-        sViewsWithIds.put(R.id.recycler_main, 10);
+        sViewsWithIds.put(R.id.recycler_main, 3);
     }
     // views
     @NonNull
@@ -70,21 +66,15 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     };
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
-        super(bindingComponent, root, 1
-            , (com.google.android.material.chip.Chip) bindings[4]
-            , (com.google.android.material.chip.Chip) bindings[3]
-            , (com.google.android.material.chip.Chip) bindings[8]
-            , (com.google.android.material.chip.Chip) bindings[7]
-            , (com.google.android.material.chip.Chip) bindings[9]
-            , (com.google.android.material.chip.ChipGroup) bindings[6]
-            , (com.google.android.material.chip.ChipGroup) bindings[2]
-            , (com.google.android.material.chip.Chip) bindings[5]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[10]
+        super(bindingComponent, root, 2
+            , (com.example.rickmorty.databinding.FiltersBinding) bindings[2]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[3]
             , (com.google.android.material.textfield.TextInputEditText) bindings[1]
             );
+        setContainedBinding(this.layoutFilters);
         this.mboundView0 = (android.widget.LinearLayout) bindings[0];
         this.mboundView0.setTag(null);
         this.searchBarMain.setTag(null);
@@ -96,8 +86,9 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x8L;
+                mDirtyFlags = 0x10L;
         }
+        layoutFilters.invalidateAll();
         requestRebind();
     }
 
@@ -107,6 +98,9 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             if (mDirtyFlags != 0) {
                 return true;
             }
+        }
+        if (layoutFilters.hasPendingBindings()) {
+            return true;
         }
         return false;
     }
@@ -129,7 +123,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     public void setMainViewModel(@Nullable com.example.rickmorty.modules.modules.main.MainViewModel MainViewModel) {
         this.mMainViewModel = MainViewModel;
         synchronized(this) {
-            mDirtyFlags |= 0x2L;
+            mDirtyFlags |= 0x4L;
         }
         notifyPropertyChanged(BR.mainViewModel);
         super.requestRebind();
@@ -139,17 +133,34 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     }
 
     @Override
+    public void setLifecycleOwner(@Nullable androidx.lifecycle.LifecycleOwner lifecycleOwner) {
+        super.setLifecycleOwner(lifecycleOwner);
+        layoutFilters.setLifecycleOwner(lifecycleOwner);
+    }
+
+    @Override
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
             case 0 :
+                return onChangeLayoutFilters((com.example.rickmorty.databinding.FiltersBinding) object, fieldId);
+            case 1 :
                 return onChangeMainViewModelFilterText((androidx.lifecycle.MutableLiveData<java.lang.String>) object, fieldId);
+        }
+        return false;
+    }
+    private boolean onChangeLayoutFilters(com.example.rickmorty.databinding.FiltersBinding LayoutFilters, int fieldId) {
+        if (fieldId == BR._all) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x1L;
+            }
+            return true;
         }
         return false;
     }
     private boolean onChangeMainViewModelFilterText(androidx.lifecycle.MutableLiveData<java.lang.String> MainViewModelFilterText, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
-                    mDirtyFlags |= 0x1L;
+                    mDirtyFlags |= 0x2L;
             }
             return true;
         }
@@ -167,7 +178,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         androidx.lifecycle.MutableLiveData<java.lang.String> mainViewModelFilterText = null;
         java.lang.String mainViewModelFilterTextGetValue = null;
 
-        if ((dirtyFlags & 0xbL) != 0) {
+        if ((dirtyFlags & 0x16L) != 0) {
 
 
 
@@ -175,7 +186,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
                     // read mainViewModel.filterText
                     mainViewModelFilterText = mainViewModel.getFilterText();
                 }
-                updateLiveDataRegistration(0, mainViewModelFilterText);
+                updateLiveDataRegistration(1, mainViewModelFilterText);
 
 
                 if (mainViewModelFilterText != null) {
@@ -184,26 +195,28 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
                 }
         }
         // batch finished
-        if ((dirtyFlags & 0xbL) != 0) {
+        if ((dirtyFlags & 0x16L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.searchBarMain, mainViewModelFilterTextGetValue);
         }
-        if ((dirtyFlags & 0x8L) != 0) {
+        if ((dirtyFlags & 0x10L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.searchBarMain, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, searchBarMainandroidTextAttrChanged);
         }
+        executeBindingsOn(layoutFilters);
     }
     // Listener Stub Implementations
     // callback impls
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): mainViewModel.filterText
-        flag 1 (0x2L): mainViewModel
-        flag 2 (0x3L): mainActivity
-        flag 3 (0x4L): null
+        flag 0 (0x1L): layoutFilters
+        flag 1 (0x2L): mainViewModel.filterText
+        flag 2 (0x3L): mainViewModel
+        flag 3 (0x4L): mainActivity
+        flag 4 (0x5L): null
     flag mapping end*/
     //end
 }

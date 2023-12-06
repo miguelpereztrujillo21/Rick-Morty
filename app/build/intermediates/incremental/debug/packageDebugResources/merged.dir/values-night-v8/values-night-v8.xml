@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Base.Theme.RickMorty" parent="Theme.Material3.DayNight.NoActionBar">
-        
-        <item name="colorPrimary">#7eff5c</item>
-
-    </style>
-</resources>
