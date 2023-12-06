@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/activity_character_detail.xml",
+        "source": "com.example.rickmorty.app-main-36:/layout/activity_character_detail.xml"
+    },
+    {
+        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "com.example.rickmorty.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.rickmorty.app-mergeDebugResources-33:/layout/item_character.xml",
+        "source": "com.example.rickmorty.app-main-36:/layout/item_character.xml"
+    }
+]
