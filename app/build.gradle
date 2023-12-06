@@ -5,22 +5,39 @@ plugins {
 
 android {
     namespace 'com.example.rickmorty'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.rickmorty"
         minSdk 25
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+    dataBinding {
+        enabled = true
     }
 
     buildTypes {
         release {
             minifyEnabled false
+            debuggable = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", '"https://rickandmortyapi.com/api/"'
+
+        }
+        debug{
+            minifyEnabled false
+            debuggable = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", '"https://rickandmortyapi.com/api/"'
         }
     }
     compileOptions {
@@ -34,11 +51,25 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //Testing
     testImplementation 'junit:junit:4.13.2'
+    testImplementation "io.mockk:mockk:1.12.2"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    // GSON
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
 }

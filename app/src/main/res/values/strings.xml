@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">RickMorty</string>
+    //Character status
+    <string name="character_status_alive">Alive</string>
+    <string name="character_status_dead">Dead</string>
+    <string name="character_status_unknow">unknown</string>
+
+    //Character detail
+    <string name="template_specie">Especie: %s</string>
+    <string name="template_origin">Origen: %s</string>
+    <string name="template_location">Localización: %s</string>
+
+    //Error
+    <string name="error_dialog_title">Error de conexión</string>
+    <string name="error_dialog_description">Prueba mas tarde</string>
+    <string name="error_dialog_close_btn">Cerrar</string>
+    <string name="error_dialog_close_title_not_results">Sin resultados</string>
+    <string name="error_dialog_acept_btn_not_results">Aceptar</string>
+
+
+
 </resources>

@@ -5,6 +5,7 @@
     tools:context=".modules.modules.main.MainActivity">
 
     <data>
+<<<<<<< HEAD
 
         <variable
             name="mainViewModel"
@@ -42,7 +43,6 @@
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group_status_main"
-        android:id="@+id/chip_group_status_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/mid_large_margin"
@@ -78,16 +78,91 @@
                 style="@style/chip_style"
                 app:chipIcon="@drawable/ic_question_mark" />
         </com.google.android.material.chip.ChipGroup>
+=======
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_main"
+        <variable
+            name="mainViewModel"
+            type="com.example.rickmorty.modules.modules.main.MainViewModel" />
+
+        <variable
+            name="mainActivity"
+            type="com.example.rickmorty.modules.modules.main.MainActivity" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_rick_morty" />
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mid_large_margin"
+            android:layout_marginBottom="10dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp">
 
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search_bar_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_search"
+                android:text="@={mainViewModel.filterText}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</layout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_status_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        android:layout_marginHorizontal="@dimen/mid_large_margin"
+        >
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_dead_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:checkable="true"
+            app:chipEndPadding="0dp"
+            app:chipIcon="@drawable/ic_dead"
+            app:iconStartPadding="8dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_alive_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:checkable="true"
+            app:chipEndPadding="0dp"
+            app:chipIcon="@drawable/ic_live"
+            app:iconStartPadding="8dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_unknow_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:checkable="true"
+            app:chipEndPadding="0dp"
+            app:chipIcon="@drawable/ic_wanted"
+            app:iconStartPadding="8dp" />
+    </com.google.android.material.chip.ChipGroup>
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+    <com.google.android.material.chip.ChipGroup
+        android:layout_marginStart="@dimen/mid_large_margin"
+        app:singleSelection="true"
+        android:id="@+id/chip_group_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_gender_male_main"
@@ -121,6 +196,7 @@
 
     </com.google.android.material.chip.ChipGroup>
 </HorizontalScrollView>
+>>>>>>> feature/room
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_main"
