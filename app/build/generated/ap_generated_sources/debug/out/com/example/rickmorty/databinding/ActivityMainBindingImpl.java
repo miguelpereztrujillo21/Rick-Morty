@@ -12,13 +12,14 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @Nullable
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
-        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(4);
+        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(5);
         sIncludes.setIncludes(0, 
             new String[] {"filters"},
             new int[] {2},
             new int[] {com.example.rickmorty.R.layout.filters});
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.recycler_main, 3);
+        sViewsWithIds.put(R.id.filters_chip, 3);
+        sViewsWithIds.put(R.id.recycler_main, 4);
     }
     // views
     @NonNull
@@ -66,12 +67,13 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     };
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
+            , (com.google.android.material.chip.Chip) bindings[3]
             , (com.example.rickmorty.databinding.FiltersBinding) bindings[2]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[3]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[4]
             , (com.google.android.material.textfield.TextInputEditText) bindings[1]
             );
         setContainedBinding(this.layoutFilters);

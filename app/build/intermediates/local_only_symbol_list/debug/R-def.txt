@@ -8,7 +8,6 @@ dimen mid_large_margin
 dimen mid_margin
 dimen small_margin
 drawable background_rick_morty
-drawable filter_selector
 drawable ic_dead
 drawable ic_female
 drawable ic_launcher_background
@@ -20,6 +19,7 @@ drawable ic_search
 drawable ic_wanted
 id card_character_item
 id chip_alive_main
+id chip_container
 id chip_dead_main
 id chip_gender_female_main
 id chip_gender_male_main
@@ -27,6 +27,7 @@ id chip_gender_unknow_main
 id chip_group_gender_main
 id chip_group_status_main
 id chip_unknow_main
+id filters_chip
 id image_character_detail
 id image_character_item
 id image_gender_character_detail

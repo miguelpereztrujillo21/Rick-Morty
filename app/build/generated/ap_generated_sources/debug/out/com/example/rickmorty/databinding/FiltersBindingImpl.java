@@ -24,8 +24,6 @@ public class FiltersBindingImpl extends FiltersBinding  {
         sViewsWithIds.put(R.id.chip_gender_unknow_main, 8);
     }
     // views
-    @NonNull
-    private final android.widget.LinearLayout mboundView0;
     // variables
     // values
     // listeners
@@ -37,6 +35,7 @@ public class FiltersBindingImpl extends FiltersBinding  {
     private FiltersBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.google.android.material.chip.Chip) bindings[3]
+            , (android.widget.LinearLayout) bindings[0]
             , (com.google.android.material.chip.Chip) bindings[2]
             , (com.google.android.material.chip.Chip) bindings[7]
             , (com.google.android.material.chip.Chip) bindings[6]
@@ -45,8 +44,7 @@ public class FiltersBindingImpl extends FiltersBinding  {
             , (com.google.android.material.chip.ChipGroup) bindings[1]
             , (com.google.android.material.chip.Chip) bindings[4]
             );
-        this.mboundView0 = (android.widget.LinearLayout) bindings[0];
-        this.mboundView0.setTag(null);
+        this.chipContainer.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();

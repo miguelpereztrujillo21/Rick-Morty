@@ -13,11 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.rickmorty.R;
 import com.example.rickmorty.modules.modules.main.MainActivity;
 import com.example.rickmorty.modules.modules.main.MainViewModel;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.textfield.TextInputEditText;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ActivityMainBinding extends ViewDataBinding {
+  @NonNull
+  public final Chip filtersChip;
+
   @NonNull
   public final FiltersBinding layoutFilters;
 
@@ -34,8 +38,10 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected MainActivity mMainActivity;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      FiltersBinding layoutFilters, RecyclerView recyclerMain, TextInputEditText searchBarMain) {
+      Chip filtersChip, FiltersBinding layoutFilters, RecyclerView recyclerMain,
+      TextInputEditText searchBarMain) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.filtersChip = filtersChip;
     this.layoutFilters = layoutFilters;
     this.recyclerMain = recyclerMain;
     this.searchBarMain = searchBarMain;

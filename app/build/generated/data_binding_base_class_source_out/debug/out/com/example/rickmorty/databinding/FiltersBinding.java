@@ -4,6 +4,7 @@ package com.example.rickmorty.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -17,6 +18,9 @@ import java.lang.Object;
 public abstract class FiltersBinding extends ViewDataBinding {
   @NonNull
   public final Chip chipAliveMain;
+
+  @NonNull
+  public final LinearLayout chipContainer;
 
   @NonNull
   public final Chip chipDeadMain;
@@ -40,11 +44,12 @@ public abstract class FiltersBinding extends ViewDataBinding {
   public final Chip chipUnknowMain;
 
   protected FiltersBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Chip chipAliveMain, Chip chipDeadMain, Chip chipGenderFemaleMain, Chip chipGenderMaleMain,
-      Chip chipGenderUnknowMain, ChipGroup chipGroupGenderMain, ChipGroup chipGroupStatusMain,
-      Chip chipUnknowMain) {
+      Chip chipAliveMain, LinearLayout chipContainer, Chip chipDeadMain, Chip chipGenderFemaleMain,
+      Chip chipGenderMaleMain, Chip chipGenderUnknowMain, ChipGroup chipGroupGenderMain,
+      ChipGroup chipGroupStatusMain, Chip chipUnknowMain) {
     super(_bindingComponent, _root, _localFieldCount);
     this.chipAliveMain = chipAliveMain;
+    this.chipContainer = chipContainer;
     this.chipDeadMain = chipDeadMain;
     this.chipGenderFemaleMain = chipGenderFemaleMain;
     this.chipGenderMaleMain = chipGenderMaleMain;

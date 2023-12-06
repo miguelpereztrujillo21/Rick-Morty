@@ -3,6 +3,7 @@ package com.example.rickmorty.modules.modules.main
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -79,14 +80,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.apply {
-            initChip(binding.layoutFilters.chipAliveMain, Constants.STATUS_ALIVE, true)
-            initChip(binding.layoutFilters.chipDeadMain, Constants.STATUS_DEAD, true)
-            initChip(binding.layoutFilters.chipUnknowMain, Constants.STATUS_UNKNOW, true)
 
-            initChip(binding.layoutFilters.chipGenderMaleMain, Constants.GENDER_MALE, false)
-            initChip(binding.layoutFilters.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
-            initChip(binding.layoutFilters.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
+        initChip(binding.layoutFilters.chipAliveMain, Constants.STATUS_ALIVE, true)
+        initChip(binding.layoutFilters.chipDeadMain, Constants.STATUS_DEAD, true)
+        initChip(binding.layoutFilters.chipUnknowMain, Constants.STATUS_UNKNOW, true)
+
+        initChip(binding.layoutFilters.chipGenderMaleMain, Constants.GENDER_MALE, false)
+        initChip(binding.layoutFilters.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
+        initChip(binding.layoutFilters.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
+        binding.filtersChip.apply {
+            setOnCheckedChangeListener { _, isChecked ->
+                chipBackgroundColor =
+                    ColorStateList.valueOf(
+                        if (isChecked) {
+                            getColor(R.color.light_grey)
+                        } else getColor(R.color.black)
+                    )
+                binding.layoutFilters.chipContainer.visibility = if (isChecked)View.VISIBLE else View.GONE
+            }
         }
     }
 

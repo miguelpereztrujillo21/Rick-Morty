@@ -40,8 +40,23 @@
                 android:text="@={mainViewModel.filterText}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <include layout="@layout/filters"
-            android:id="@+id/layout_filters"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/filters_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="@dimen/mid_large_margin"
+            android:layout_marginTop="6dp"
+            android:checkable="true"
+            android:checked="true"
+            app:chipBackgroundColor="@color/light_grey"
+            android:text="@string/simple_filters"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <include
+            android:id="@+id/layout_filters"
+            layout="@layout/filters" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_main"
             android:layout_width="match_parent"

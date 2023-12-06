@@ -1,142 +1,138 @@
 [
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_wanted.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_wanted.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_question_mark.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_question_mark.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_filter_selector.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\filter_selector.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_dead.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_dead.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\layout_item_character.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\layout\\item_character.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\layout_activity_character_detail.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\layout\\activity_character_detail.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xhdpi\\ic_launcher_foreground.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_female.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_female.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\layout_filters.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\filters.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\layout_activity_character_detail.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\activity_character_detail.xml"
+        "merged": "com.example.rickmorty.app-merged_res-56:/layout_activity_main.xml.flat",
+        "source": "com.example.rickmorty.app-main-58:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_question_mark.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_question_mark.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-mdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "com.example.rickmorty.app-merged_res-34:/layout_filters.xml.flat",
-        "source": "com.example.rickmorty.app-main-36:/layout/filters.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_search.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_search.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_background_rick_morty.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\background_rick_morty.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-mdpi\\ic_launcher_foreground.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_live.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_live.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\layout_filters.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\layout\\filters.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-hdpi\\ic_launcher_foreground.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_male.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_male.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\layout_item_character.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\layout\\item_character.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_dead.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_dead.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_search.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_male.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_male.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_female.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_female.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\xml\\backup_rules.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_background_rick_morty.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\background_rick_morty.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\drawable_ic_wanted.xml.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\drawable\\ic_wanted.xml"
-    },
-    {
-        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-34:\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-36:\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-merged_res-56:\\drawable_ic_live.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.0\\com.example.rickmorty.app-main-58:\\drawable\\ic_live.xml"
     }
 ]
