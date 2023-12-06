@@ -40,88 +40,43 @@
                 android:text="@={mainViewModel.filterText}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chip_group_status_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:singleSelection="true"
-        android:layout_marginHorizontal="@dimen/mid_large_margin"
-        >
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_dead_main"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_status_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mid_large_margin"
+            app:singleLine="true">
 
-            android:checkable="true"
-            app:chipEndPadding="0dp"
-            app:chipIcon="@drawable/ic_dead"
-            app:iconStartPadding="8dp" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_dead_main"
+                style="@style/chip_style"
+                app:chipIcon="@drawable/ic_dead" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_alive_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mid_margin"
-            android:checkable="true"
-            app:chipEndPadding="0dp"
-            app:chipIcon="@drawable/ic_live"
-            app:iconStartPadding="8dp" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_alive_main"
+                style="@style/chip_style"
+                app:chipIcon="@drawable/ic_live" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_unknow_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mid_margin"
-            android:checkable="true"
-            app:chipEndPadding="0dp"
-            app:chipIcon="@drawable/ic_wanted"
-            app:iconStartPadding="8dp" />
-    </com.google.android.material.chip.ChipGroup>
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-    <com.google.android.material.chip.ChipGroup
-        android:layout_marginStart="@dimen/mid_large_margin"
-        app:singleSelection="true"
-        android:id="@+id/chip_group_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_unknow_main"
+                style="@style/chip_style"
+                app:chipIcon="@drawable/ic_wanted" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_gender_male_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipEndPadding="0dp"
-            app:chipIcon="@drawable/ic_male"
-            app:iconStartPadding="8dp" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_gender_male_main"
+                style="@style/chip_style"
+                app:chipIcon="@drawable/ic_male" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_gender_female_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mid_margin"
-            android:checkable="true"
-            app:chipEndPadding="0dp"
-            app:chipIcon="@drawable/ic_female"
-            app:iconStartPadding="8dp" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_gender_female_main"
+                style="@style/chip_style"
+                app:chipIcon="@drawable/ic_female" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_gender_unknow_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mid_margin"
-            android:checkable="true"
-            app:chipEndPadding="0dp"
-            app:chipIcon="@drawable/ic_question_mark"
-            app:iconStartPadding="8dp" />
-
-
-    </com.google.android.material.chip.ChipGroup>
-</HorizontalScrollView>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_gender_unknow_main"
+                style="@style/chip_style"
+                app:chipIcon="@drawable/ic_question_mark" />
+        </com.google.android.material.chip.ChipGroup>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_main"

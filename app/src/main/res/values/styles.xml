@@ -5,4 +5,12 @@
         <item name="android:textStyle">bold</item>
         <item name="textAllCaps">false</item>
     </style>
+    <style name="chip_style" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/mid_margin</item>
+        <item name="android:checkable">true</item>
+        <item name="chipEndPadding">0dp</item>
+        <item name="iconStartPadding">8dp</item>
+    </style>
 </resources>
