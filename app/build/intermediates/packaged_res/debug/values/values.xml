@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="light_grey">#9c9c9c</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="large_margin">48dp</dimen>
+    <dimen name="mid_large_margin">16dp</dimen>
+    <dimen name="mid_margin">8dp</dimen>
+    <dimen name="small_margin">4dp</dimen>
+    <string name="app_name">RickMorty</string>
+    <string name="character_status_alive">Alive</string>
+    <string name="character_status_dead">Dead</string>
+    <string name="character_status_unknow">unknown</string>
+    <string name="error_dialog_acept_btn_not_results">Aceptar</string>
+    <string name="error_dialog_close_btn">Cerrar</string>
+    <string name="error_dialog_close_title_not_results">Sin resultados</string>
+    <string name="error_dialog_description">Prueba mas tarde</string>
+    <string name="error_dialog_title">Error de conexión</string>
+    <string name="template_location">Localización: %s</string>
+    <string name="template_origin">Origen: %s</string>
+    <string name="template_specie">Especie: %s</string>
+    <style name="Base.Theme.RickMorty" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">#a3ff7e</item>
+    </style>
+    <style name="Theme.RickMorty" parent="Base.Theme.RickMorty"/>
+    <style name="chip_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/mid_margin</item>
+        <item name="android:checkable">true</item>
+        <item name="chipEndPadding">0dp</item>
+        <item name="iconStartPadding">8dp</item>
+    </style>
+    <style name="title_text">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+</resources>
