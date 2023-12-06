@@ -5,7 +5,6 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,15 +35,15 @@ class MainActivity : AppCompatActivity() {
         initListeners()
         setUpRecycler()
 
-        viewModel.getCharacters();
+        viewModel.getCharacters()
     }
 
     private fun initObservers() {
-        viewModel.characters.observe(this, Observer { character ->
+        viewModel.characters.observe(this) { character ->
             character?.let {
                 adapter?.submitList(it)
             }
-        })
+        }
         viewModel.filterText.observe(this) {
             viewModel.getCharacters()
             viewModel.currentPage = 1
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.filterStatus.observe(this) {
             viewModel.getCharacters()
         }
-        viewModel.error.observe(this, Observer {
+        viewModel.error.observe(this) {
             if (it.equals(Constants.NOT_RESULTS)) {
                 Utils.showDialog(
                     this,
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 )
             }
-        })
+        }
     }
 
     private fun initListeners() {
