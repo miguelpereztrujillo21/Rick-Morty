@@ -23,6 +23,7 @@
     <string name="simple_female">Mujer</string>
     <string name="simple_indeterminado">Indeterminado</string>
     <string name="simple_filters">Filtros</string>
+    <string name="simple_not_results">Sin resultados</string>
 
 
 </resources>
