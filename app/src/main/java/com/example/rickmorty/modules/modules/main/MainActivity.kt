@@ -3,6 +3,7 @@ package com.example.rickmorty.modules.modules.main
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -24,22 +25,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-
         binding.lifecycleOwner = this
         binding.mainActivity = this
         binding.mainViewModel = viewModel
 
         initObservers()
         initListeners()
-
         setUpRecycler()
 
         viewModel.getCharacters()
-
-
     }
 
     private fun initObservers() {
@@ -52,11 +48,9 @@ class MainActivity : AppCompatActivity() {
             viewModel.getCharacters()
             viewModel.currentPage = 1
         }
-
         viewModel.filterGender.observe(this) {
             viewModel.getCharacters()
         }
-
         viewModel.filterStatus.observe(this) {
             viewModel.getCharacters()
         }
@@ -82,45 +76,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.apply {
-
-            initChip(binding.chipAliveMain, Constants.STATUS_ALIVE, true)
-            initChip(binding.chipDeadMain, Constants.STATUS_DEAD, true)
-            initChip(binding.chipUnknowMain, Constants.STATUS_UNKNOW, true)
-
-            initChip(binding.chipGenderMaleMain, Constants.GENDER_MALE, false)
-            initChip(binding.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
-            initChip(binding.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
-
+        initChip(binding.layoutFilters.chipAliveMain, Constants.STATUS_ALIVE, true)
+        initChip(binding.layoutFilters.chipDeadMain, Constants.STATUS_DEAD, true)
+        initChip(binding.layoutFilters.chipUnknowMain, Constants.STATUS_UNKNOW, true)
+        initChip(binding.layoutFilters.chipGenderMaleMain, Constants.GENDER_MALE, false)
+        initChip(binding.layoutFilters.chipGenderFemaleMain, Constants.GENDER_FEMALE, false)
+        initChip(binding.layoutFilters.chipGenderUnknowMain, Constants.STATUS_UNKNOW, false)
+        binding.filtersChip.apply {
+            setOnCheckedChangeListener { _, isChecked ->
+                val colorChip = if (isChecked) R.color.light_grey else R.color.black
+                chipBackgroundColor = ColorStateList.valueOf(getColor(colorChip))
+                binding.layoutFilters.chipContainer.visibility = if (isChecked)View.VISIBLE else View.GONE
+            }
         }
     }
 
     private fun initChip(chip: Chip, filter: String, isStatus: Boolean) {
         chip.setOnCheckedChangeListener { _, isChecked ->
-            chip.chipBackgroundColor =
-                ColorStateList.valueOf(
-                    if (isChecked) getColor(R.color.light_grey) else getColor(
-                        R.color.white
-                    )
-                )
-            if (isStatus && isChecked) {
-                viewModel.filterStatus.value = filter
-            } else if (isStatus){
-                viewModel.filterStatus.value = ""
-            }else if (isChecked && !isStatus) {
-                viewModel.filterGender.value = filter
-            } else {
-                viewModel.filterGender.value = ""
-            }
+            val colorChip = if (isChecked) R.color.light_grey else R.color.white
+            chip.chipBackgroundColor = ColorStateList.valueOf(getColor(colorChip))
+            viewModel.onChipCheckedChanged(isChecked, filter, isStatus)
         }
-
     }
 
     private fun setUpRecycler() {
         val layoutManager = GridLayoutManager(this, 2)
-
         binding.recyclerMain.layoutManager = layoutManager
-
         adapter = CharacterAdapter(this, object : CharacterAdapter.ClickListener {
             override fun onClick(position: Int) {
                 val intent = Intent(this@MainActivity, ActivityCharacterDetail::class.java)
@@ -134,24 +115,12 @@ class MainActivity : AppCompatActivity() {
             }
         })
         binding.recyclerMain.adapter = adapter
-
         binding.recyclerMain.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-
                 if (dy != 0&&!viewModel.isLoading && layoutManager.findLastVisibleItemPosition() >= layoutManager.itemCount - 5) {
                     viewModel.isLoading = true
-                    viewModel.currentPage.let { currentPage ->
-                        viewModel.maxPages?.let { maxPages ->
-                            if (maxPages > currentPage) {
-                                viewModel.currentPage += 1
-                                viewModel.getCharacters()
-                                viewModel.cacheFilteredCharacters = true
-                            }else{
-                                viewModel.currentPage = 1
-                            }
-                        }
-                    }
+                    viewModel.handlePagination()
                 }
             }
         })

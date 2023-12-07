@@ -16,7 +16,14 @@
     <string name="error_dialog_close_btn">Cerrar</string>
     <string name="error_dialog_close_title_not_results">Sin resultados</string>
     <string name="error_dialog_acept_btn_not_results">Aceptar</string>
-
+    <string name="simple_dead">Muerto</string>
+    <string name="simple_alive">Vivo</string>
+    <string name="simple_wanted">Wanded</string>
+    <string name="simple_male">Hombre</string>
+    <string name="simple_female">Mujer</string>
+    <string name="simple_indeterminado">Indeterminado</string>
+    <string name="simple_filters">Filtros</string>
+    <string name="simple_not_results">Sin resultados</string>
 
 
 </resources>

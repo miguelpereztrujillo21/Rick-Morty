@@ -4,9 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
-import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.data.models.Character
 import com.example.rickmorty.modules.data.models.Info
+import com.example.rickmorty.modules.helpers.Constants
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,14 +18,11 @@ class MainViewModel : ViewModel() {
     val filterStatus = MutableLiveData<String>()
     val filterGender = MutableLiveData<String>()
     var currentPage = 1
-    var maxPages: Int? = null
+    private var maxPages: Int? = null
     var isLoading = false
     private var info: Info? = null
-    var cacheFilteredCharacters = false
-
-
+    private var cacheFilteredCharacters = false
     var error = MutableLiveData<String>()
-
 
     fun getCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -66,6 +63,23 @@ class MainViewModel : ViewModel() {
                 error.value = "Error: ${e.message}"
             } finally {
                 isLoading = false
+            }
+        }
+    }
+
+    fun onChipCheckedChanged(isChecked: Boolean, filter: String, isStatus: Boolean) {
+        filterStatus.value = if (isStatus && isChecked) filter else ""
+        filterGender.value = if (isChecked && !isStatus) filter else ""
+    }
+
+    fun handlePagination() {
+        maxPages?.let { maxPages ->
+            if (maxPages > currentPage) {
+                currentPage += 1
+                getCharacters()
+                cacheFilteredCharacters = true
+            } else {
+                currentPage = 1
             }
         }
     }
