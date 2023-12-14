@@ -52,10 +52,10 @@ class MainViewModel : ViewModel() {
                     val errorValue = jsonObject.get("error").asString
                     if(errorValue?.equals(Constants.NOT_RESULTS) == true) {
                        error.postValue(Constants.NOT_RESULTS)
-                        characters.postValue(ArrayList<Character>())
+                        characters.postValue(ArrayList())
                     }else{
                         error.postValue("Error: ${response.code()}")
-                        characters.postValue(ArrayList<Character>())
+                        characters.postValue(ArrayList())
                     }
                 }
                 isLoading = false

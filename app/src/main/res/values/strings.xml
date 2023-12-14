@@ -24,6 +24,7 @@
     <string name="simple_indeterminado">Indeterminado</string>
     <string name="simple_filters">Filtros</string>
     <string name="simple_not_results">Sin resultados</string>
+    <string name="simple_search_by_name">Buscar por nombre</string>
 
 
 </resources>
