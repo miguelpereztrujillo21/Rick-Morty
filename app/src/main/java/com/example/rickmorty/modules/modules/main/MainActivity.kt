@@ -56,23 +56,21 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.error.observe(this) {
             if (it.equals(Constants.NOT_RESULTS)) {
-                Utils.showDialog(
-                    this,
-                    getString(R.string.error_dialog_close_title_not_results),
-                    "",
-                    this,
-                    false
-                )
+              showDialog(getString(R.string.error_dialog_close_title_not_results),
+                  "",)
             } else {
-                Utils.showDialog(
-                    this,
-                    getString(R.string.error_dialog_title),
-                    getString(R.string.error_dialog_description),
-                    this,
-                    true
-                )
+                showDialog(getString(R.string.error_dialog_title), getString(R.string.error_dialog_description))
             }
         }
+    }
+    private fun showDialog(title: String, description: String){
+        Utils.showDialog(
+            this,
+            title,
+            description,
+            this,
+            true
+        )
     }
 
     private fun initListeners() {
