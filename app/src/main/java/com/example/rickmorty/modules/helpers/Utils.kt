@@ -45,7 +45,7 @@ object Utils {
         builder.setTitle(title)
         builder.setMessage(description)
         if (finishBtn){
-            builder.setPositiveButton(context.getString(R.string.error_dialog_close_btn)) { dialog, _ ->
+            builder.setPositiveButton(context.getString(R.string.error_dialog_close_btn)) { _, _ ->
                 activity.finishAffinity()
             }
         }else{

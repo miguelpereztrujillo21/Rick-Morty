@@ -1,16 +1,29 @@
 package com.example.rickmorty.modules.data.models
 
-class Character {
-    val id: Int? = null;
-    val name: String? = null;
-    val status: String? = null;
-    val species: String? = null;
-    val type: String? = null;
-    val gender: String? = null;
-    val origin: Origin? = null;
-    val location: Location? = null;
-    val image: String? = null;
-    val episode: Array<String>? = null;
-    val url: String? = null;
-    val created : String? = null;
+import androidx.annotation.NonNull
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.rickmorty.modules.modules.Converters
+import java.io.Serializable
+
+@Entity(tableName = "characters")
+class Character: Serializable {
+    @PrimaryKey
+    var id: Int? = null
+    var name: String? = null
+    var status: String? = null
+    var species: String? = null
+    var type: String? = null
+    var gender: String? = null
+    @Embedded
+    var origin: Origin? = null
+    @Embedded
+    var location: Location? = null
+    var image: String? = null
+    @TypeConverters(Converters::class)
+    var episode: ArrayList<String>? = arrayListOf()
+    var url: String? = null
+    var created: String? = null
 }
