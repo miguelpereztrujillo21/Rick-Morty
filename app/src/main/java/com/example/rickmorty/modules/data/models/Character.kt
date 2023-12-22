@@ -1,6 +1,5 @@
 package com.example.rickmorty.modules.data.models
 
-import androidx.annotation.NonNull
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
