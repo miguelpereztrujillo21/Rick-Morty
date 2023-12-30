@@ -4,27 +4,27 @@
     <string name="character_status_alive">Alive</string>
     <string name="character_status_dead">Dead</string>
     <string name="character_status_unknow">unknown</string>
-
     //Character detail
     <string name="template_specie">Especie: %s</string>
     <string name="template_origin">Origen: %s</string>
     <string name="template_location">Localización: %s</string>
-
     //Error
     <string name="error_dialog_title">Error de conexión</string>
     <string name="error_dialog_description">Prueba mas tarde</string>
     <string name="error_dialog_close_btn">Cerrar</string>
     <string name="error_dialog_close_title_not_results">Sin resultados</string>
     <string name="error_dialog_acept_btn_not_results">Aceptar</string>
+    //Filters
     <string name="simple_dead">Muerto</string>
     <string name="simple_alive">Vivo</string>
     <string name="simple_wanted">Wanded</string>
     <string name="simple_male">Hombre</string>
     <string name="simple_female">Mujer</string>
     <string name="simple_indeterminado">Indeterminado</string>
+    //Simple text
     <string name="simple_filters">Filtros</string>
     <string name="simple_not_results">Sin resultados</string>
     <string name="simple_search_by_name">Buscar por nombre</string>
-
-
+    <string name="simple_not_results_text">Sin resultados para el texto " %s "</string>
+    <string name="not_found_image">not found image</string>
 </resources>

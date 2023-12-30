@@ -41,12 +41,13 @@ class MainActivity : AppCompatActivity() {
     private fun initObservers() {
         viewModel.characters.observe(this) {
             adapter?.submitList(it)
-            binding.progressBarMain.visibility = it?.let { View.GONE } ?: View.VISIBLE
-            binding.recyclerMain.visibility = it?.let { View.VISIBLE } ?: View.GONE
+            binding.progressBarMain.visibility =  View.GONE
+            binding.recyclerMain.visibility = if(it.size <= 0 ) View.GONE  else View.VISIBLE
         }
         viewModel.filterText.observe(this) {
             viewModel.getCharacters()
             viewModel.currentPage = 1
+            binding.backgroundMain.textBackground.text = getString(R.string.simple_not_results_text, it)
         }
         viewModel.filterGender.observe(this) {
             viewModel.getCharacters()
@@ -55,22 +56,14 @@ class MainActivity : AppCompatActivity() {
             viewModel.getCharacters()
         }
         viewModel.error.observe(this) {
-            if (it.equals(Constants.NOT_RESULTS)) {
-              showDialog(getString(R.string.error_dialog_close_title_not_results),
-                  "",)
-            } else {
-                showDialog(getString(R.string.error_dialog_title), getString(R.string.error_dialog_description))
-            }
+                Utils.showDialog(
+                    this,
+                    getString(R.string.error_dialog_title),
+                    getString(R.string.error_dialog_description),
+                    this,
+                    true
+                )
         }
-    }
-    private fun showDialog(title: String, description: String){
-        Utils.showDialog(
-            this,
-            title,
-            description,
-            this,
-            true
-        )
     }
 
     private fun initListeners() {
