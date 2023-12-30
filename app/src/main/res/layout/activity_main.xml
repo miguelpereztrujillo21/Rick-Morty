@@ -59,11 +59,16 @@
             layout="@layout/filters" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
             android:id="@+id/recycler_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_rick_morty" />
-
+        <ProgressBar
+            android:id="@+id/progress_bar_main"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 </layout>

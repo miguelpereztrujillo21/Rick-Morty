@@ -39,10 +39,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        viewModel.characters.observe(this) { character ->
-            character?.let {
-                adapter?.submitList(it)
-            }
+        viewModel.characters.observe(this) {
+            adapter?.submitList(it)
+            binding.progressBarMain.visibility = it?.let { View.GONE } ?: View.VISIBLE
+            binding.recyclerMain.visibility = it?.let { View.VISIBLE } ?: View.GONE
         }
         viewModel.filterText.observe(this) {
             viewModel.getCharacters()
