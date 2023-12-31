@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.getCharacters()
         }
         viewModel.error.observe(this) {
+            if (!it.equals(Constants.NOT_RESULTS)) {
                 Utils.showDialog(
                     this,
                     getString(R.string.error_dialog_title),
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                     this,
                     true
                 )
+            }
         }
     }
 
