@@ -32,6 +32,7 @@ android {
             debuggable = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_URL", '"https://rickandmortyapi.com/api/"'
+            buildConfigField "String", "MOCK_API_URL", '"https://rickandmortyapi.com/api/"'
 
         }
         debug{
@@ -39,8 +40,16 @@ android {
             debuggable = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_URL", '"https://rickandmortyapi.com/api/"'
+            buildConfigField "String", "MOCK_API_URL", '"https://rickandmortyapi.com/api/"'
         }
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -48,6 +57,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -62,11 +72,12 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:5.5.0'
     androidTestImplementation 'org.mockito:mockito-core:5.5.0'
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.11.0"
     androidTestImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     testImplementation "androidx.arch.core:core-testing:2.2.0"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // GSON

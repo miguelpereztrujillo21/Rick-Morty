@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.filterText.observe(this) {
             viewModel.getCharacters()
             viewModel.currentPage = 1
-            binding.backgroundMain.textBackground.text = getString(R.string.simple_not_results_text, it)
+
         }
         viewModel.filterGender.observe(this) {
             viewModel.getCharacters()
@@ -64,6 +64,8 @@ class MainActivity : AppCompatActivity() {
                     this,
                     true
                 )
+            }else{
+                binding.backgroundMain.textBackground.text = getString(R.string.simple_not_results_text, viewModel.filterText.value)
             }
         }
     }

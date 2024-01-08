@@ -16,5 +16,4 @@ interface Api {
         @Query("gender") gender: String? = null
     ): Response<ResponseCharacters>
 
-
 }

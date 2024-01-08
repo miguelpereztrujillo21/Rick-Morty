@@ -25,6 +25,6 @@
     <string name="simple_filters">Filtros</string>
     <string name="simple_not_results">Sin resultados</string>
     <string name="simple_search_by_name">Buscar por nombre</string>
-    <string name="simple_not_results_text">Sin resultados para el texto " %s "</string>
     <string name="not_found_image">not found image</string>
+    <string name="simple_not_results_text">Sin resultados para el texto "%s"</string>
 </resources>

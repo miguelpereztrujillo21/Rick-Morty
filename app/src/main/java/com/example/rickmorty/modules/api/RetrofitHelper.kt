@@ -5,8 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
 
-    fun getInstance(): Retrofit {
-        return Retrofit.Builder().baseUrl(BuildConfig.API_URL)
+    fun getInstance(baseUrl:String): Retrofit {
+        return Retrofit.Builder().baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

@@ -1,61 +1,35 @@
-package com.example.rickmorty.modules.modules.main
+package com.example.rickmorty.modules.modules.main.api
 
-
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.rickmorty.modules.api.Api
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Retrofit
+import org.hamcrest.MatcherAssert.assertThat
 import retrofit2.converter.gson.GsonConverterFactory
 
-@RunWith(MockitoJUnitRunner::class)
-class MainViewModelTest {
-
-    @get:Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
-
-    @Mock
-    private lateinit var api: Api
+class ApiTest {
     private lateinit var mockWebServer: MockWebServer
-    private lateinit var viewModel: MainViewModel
+    private lateinit var api: Api
 
-    @ExperimentalCoroutinesApi
     @Before
-    fun setup() {
-        MockitoAnnotations.openMocks(this)
-        viewModel = MainViewModel()
+    fun setUp() {
         mockWebServer = MockWebServer()
-        Dispatchers.setMain(Dispatchers.Unconfined)
-        /* viewModel.characters.observeForever {  }
-          viewModel.error.observeForever {  }*/
-        api = Retrofit.Builder().baseUrl(mockWebServer.url("/"))//Pass any base url like this
-            .addConverterFactory(GsonConverterFactory.create()).build().create(Api::class.java)
+        api = Retrofit.Builder()
+            .baseUrl(mockWebServer.url("/"))//Pass any base url like this
+            .addConverterFactory(GsonConverterFactory.create())
+            .build().create(Api::class.java)
     }
-
-    @ExperimentalCoroutinesApi
     @Test
-    fun testGetCharactersSucess() = runBlocking {
-
-        val mockResponse = MockResponse().setResponseCode(200)
-            .setBody(
+    fun testGetCharacters() = runBlocking {
+        val mockResponse = MockResponse().setResponseCode(200).setBody(
             """
                 {
                   "info": {
@@ -117,26 +91,22 @@ class MainViewModelTest {
                 }
             """)
         mockWebServer.enqueue(mockResponse)
-        viewModel.getCharacters()
 
+        val response = api.getCharacters()
+        val responseBody = response.body()
+
+        val request = mockWebServer.takeRequest()
         delay(1000)
-        assertNotNull(viewModel.characters.value)
-       // assertThat(viewModel.characters.value?.size, `is`(2))
+        assertNotNull(request)
+        assertNotNull(response.body())
+        assertTrue(response.isSuccessful)
+
+        assertThat(responseBody?.results?.size, `is`(2))
+        assertThat(responseBody?.results?.get(0)?.id, `is`(1))
     }
-
-    @Test
-    fun `when the observer receives list the recycler is in screen`() {
-        viewModel.characters.value = ArrayList()
-
-
-    }
-
 
     @After
-    fun tearDown() {
+    fun tearDown(){
         mockWebServer.shutdown()
-        Dispatchers.resetMain()
     }
-
-
 }

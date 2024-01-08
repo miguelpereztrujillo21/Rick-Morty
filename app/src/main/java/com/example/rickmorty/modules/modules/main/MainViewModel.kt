@@ -2,6 +2,7 @@ package com.example.rickmorty.modules.modules.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.rickmorty.BuildConfig
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
 import com.example.rickmorty.modules.data.models.Character
@@ -25,9 +26,9 @@ class MainViewModel : ViewModel() {
     var error = MutableLiveData<String>()
 
     fun getCharacters() {
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             val response =
-                RetrofitHelper.getInstance().create(Api::class.java)
+                RetrofitHelper.getInstance(BuildConfig.API_URL).create(Api::class.java)
                     .getCharacters(
                         page = currentPage,
                         name = filterText.value,
