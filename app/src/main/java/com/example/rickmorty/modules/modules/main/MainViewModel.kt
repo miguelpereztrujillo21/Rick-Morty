@@ -28,13 +28,12 @@ class MainViewModel : ViewModel() {
     fun getCharacters() {
         CoroutineScope(Dispatchers.Main).launch {
             val response =
-                RetrofitHelper.getInstance(BuildConfig.API_URL).create(Api::class.java)
+                RetrofitHelper.getInstance().create(Api::class.java)
                     .getCharacters(
                         page = currentPage,
                         name = filterText.value,
                         status = filterStatus.value,
-                        gender = filterGender.value
-                    )
+                        gender = filterGender.value)
             try {
                 isLoading = true
                 if (response.isSuccessful) {
