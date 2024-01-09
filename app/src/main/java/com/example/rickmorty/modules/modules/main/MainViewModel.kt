@@ -2,7 +2,6 @@ package com.example.rickmorty.modules.modules.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rickmorty.BuildConfig
 import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.RetrofitHelper
 import com.example.rickmorty.modules.data.models.Character

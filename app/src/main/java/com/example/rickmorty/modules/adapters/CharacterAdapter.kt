@@ -10,7 +10,7 @@ import com.example.rickmorty.databinding.ItemCharacterBinding
 import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.data.models.Character
 
-class CharacterAdapter(val context: Context, private val clickListener: ClickListener) :
+class CharacterAdapter(private val context: Context, private val clickListener: ClickListener) :
     androidx.recyclerview.widget.ListAdapter<Character, CharacterAdapter.ViewHolder>(
         CountryDiffCallback()
     ) {
@@ -24,7 +24,7 @@ class CharacterAdapter(val context: Context, private val clickListener: ClickLis
         holder.bind(context, getItem(position), clickListener)
     }
 
-    class ViewHolder private constructor(val binding: ItemCharacterBinding) :
+    class ViewHolder private constructor(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(

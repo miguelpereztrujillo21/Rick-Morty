@@ -23,7 +23,7 @@ class ActivityCharacterDetail : AppCompatActivity() {
         getExtras()
     }
 
-    fun initComponents(characterJson: String?) {
+    private fun initComponents(characterJson: String?) {
 
         val character = Gson().fromJson(characterJson, Character::class.java)
 
@@ -38,7 +38,7 @@ class ActivityCharacterDetail : AppCompatActivity() {
         binding.textLocationCharacterDetail.text =getString(R.string.template_location, character.location?.name)
     }
 
-    fun getExtras() {
+    private fun getExtras() {
         character = intent.extras?.getString(Constants.BUNDLE_KEY_CHARACTER)
         initComponents(character)
     }
