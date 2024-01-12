@@ -3,16 +3,10 @@ package com.example.rickmorty.modules.modules.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickmorty.modules.api.Api
 import com.example.rickmorty.modules.api.ApiRepository
-import com.example.rickmorty.modules.api.RetrofitApiService
 import com.example.rickmorty.modules.data.models.Character
 import com.example.rickmorty.modules.data.models.Info
-import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.helpers.Constants.NOT_RESULTS
-import com.google.gson.JsonParser
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val apiRepository: ApiRepository) : ViewModel() {
