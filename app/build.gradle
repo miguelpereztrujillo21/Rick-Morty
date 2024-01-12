@@ -31,7 +31,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_URL", '"https://rickandmortyapi.com/api/"'
-            buildConfigField "String", "MOCK_API_URL", '"https://rickandmortyapi.com/api/"'
 
         }
         debug{
@@ -39,7 +38,6 @@ android {
             debuggable = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_URL", '"https://rickandmortyapi.com/api/"'
-            buildConfigField "String", "MOCK_API_URL", '"https://rickandmortyapi.com/api/"'
         }
     }
 
@@ -65,7 +63,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.room:room-common:2.6.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+
 
     //Testing
     testImplementation 'junit:junit:4.13.2'
@@ -90,5 +89,6 @@ dependencies {
     //Room
     implementation "androidx.room:room-runtime:2.6.1"
     implementation "androidx.room:room-ktx:2.6.1"
+    implementation 'androidx.room:room-common:2.6.1'
     kapt "androidx.room:room-compiler:2.6.1"
 }

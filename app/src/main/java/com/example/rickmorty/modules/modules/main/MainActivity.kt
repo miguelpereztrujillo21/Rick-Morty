@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmorty.R
 import com.example.rickmorty.databinding.ActivityMainBinding
 import com.example.rickmorty.modules.adapters.CharacterAdapter
+import com.example.rickmorty.modules.api.ApiRepository
+import com.example.rickmorty.modules.api.ApiRepositoryImpl
+import com.example.rickmorty.modules.api.RetrofitApiService
 import com.example.rickmorty.modules.helpers.Constants
 import com.example.rickmorty.modules.helpers.Utils
 import com.example.rickmorty.modules.modules.character_detail.ActivityCharacterDetail
@@ -23,10 +26,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     var adapter: CharacterAdapter? = null
 
+    private val apiRepository = ApiRepositoryImpl(RetrofitApiService.getInstance())
+    private val viewModelFactory = MainViewModelFactory(apiRepository)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
         binding.lifecycleOwner = this
         binding.mainActivity = this
         binding.mainViewModel = viewModel
@@ -47,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.filterText.observe(this) {
             viewModel.getCharacters()
             viewModel.currentPage = 1
-
         }
         viewModel.filterGender.observe(this) {
             viewModel.getCharacters()
