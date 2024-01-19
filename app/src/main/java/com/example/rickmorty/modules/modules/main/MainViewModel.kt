@@ -59,7 +59,6 @@ class MainViewModel(private val apiRepository: ApiRepository) : ViewModel() {
         }
     }
 
-
     fun onChipCheckedChanged(isChecked: Boolean, filter: String, isStatus: Boolean) {
         filterStatus.value = if (isStatus && isChecked) filter else ""
         filterGender.value = if (isChecked && !isStatus) filter else ""

@@ -16,7 +16,7 @@ class ApiRepositoryImpl(private val api: Api) : ApiRepository {
         return try {
             val response = api.getCharacters(page, name, status, gender)
             if (response.isSuccessful) {
-                response.body() ?: ResponseCharacters() // Devolver objeto ResponseCharacters
+                response.body() ?: ResponseCharacters()
             } else {
                 val jsonObject = JsonParser().parse(response.errorBody()?.string()).asJsonObject
                 val errorValue = jsonObject.get("error").asString
@@ -27,7 +27,6 @@ class ApiRepositoryImpl(private val api: Api) : ApiRepository {
                 }
             }
         } catch (e: Exception) {
-            // Manejar error de red si es necesario
             throw e
         }
     }

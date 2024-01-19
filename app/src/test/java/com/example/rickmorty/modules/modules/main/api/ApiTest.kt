@@ -100,7 +100,6 @@ class ApiTest {
         assertNotNull(request)
         assertNotNull(response.body())
         assertTrue(response.isSuccessful)
-
         assertThat(responseBody?.results?.size, `is`(2))
         assertThat(responseBody?.results?.get(0)?.id, `is`(1))
     }
